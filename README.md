@@ -1,69 +1,79 @@
 # Arch Context Generator
 
-Ein Bash-Script, das umfassende System-Kontext-Dokumentation für Arch Linux Systeme generiert, optimiert für die Verwendung mit Claude.
+A Bash script that generates comprehensive system context documentation for Arch Linux systems, optimized for use with Claude.
 
-## Was macht das Script?
+> **Note for Arch Linux users**: Claude Desktop is now available for Arch Linux! See [claude-desktop-archlinux](https://github.com/patrickjaja/claude-desktop-archlinux) for installation.
 
-`arch-context-generator.sh` sammelt detaillierte Informationen über Ihr Arch Linux System und erstellt eine strukturierte Markdown-Datei mit:
+## What does this script do?
 
-- Hardware-Informationen (CPU, RAM, Disks, GPU)
-- Betriebssystem-Details und Konfiguration
-- Installierte Pakete und Services
-- Netzwerk- und Audio-Konfiguration
-- Entwicklungsumgebung
-- Sicherheitseinstellungen
+`arch-context-generator.sh` collects detailed information about your Arch Linux system and creates a structured Markdown file with:
 
-## Warum?
+- Hardware information (CPU, RAM, disks, GPU)
+- Operating system details and configuration
+- Installed packages and services
+- Network and audio configuration
+- Development environment
+- Security settings
 
-Die generierte Kontextdatei verbessert die Zusammenarbeit mit Claude erheblich:
-- **Präzisere Hilfe**: Claude kann systemspezifische Lösungen anbieten
-- **Weniger Rückfragen**: Alle relevanten Systeminformationen sind sofort verfügbar
-- **Bessere Fehlerbehebung**: Claude kennt Ihre exakte Konfiguration
+## Why use this?
 
-## Verwendung
+The generated context file significantly improves collaboration with Claude:
+- **More precise help**: Claude can offer system-specific solutions
+- **Fewer follow-up questions**: All relevant system information is immediately available
+- **Better troubleshooting**: Claude knows your exact configuration
 
-### 1. Script ausführen
+## Usage
+
+### 1. Run the script
 
 ```bash
-# Script ausführbar machen
+# Make the script executable
 chmod +x arch-context-generator.sh
 
-# Vollständigen Kontext generieren
+# Generate full context
 ./arch-context-generator.sh
 
-# Basis-Kontext (nur wichtigste Infos)
+# Basic context (only essential info)
 ./arch-context-generator.sh --basic
 
-# Spezifische Module auswählen
+# Select specific modules
 ./arch-context-generator.sh --modules=hardware,packages,development
 ```
 
-### 2. Generierte Datei finden
+### 2. Find the generated file
 
-Das Script erstellt:
-- `arch-context_YYYY-MM-DD_HH-MM-SS.md` - Zeitgestempelte Datei
-- `arch-context_latest.md` - Symbolischer Link zur neuesten Version
+The script creates:
+- `arch-context_YYYY-MM-DD_HH-MM-SS.md` - Timestamped file
+- `arch-context_latest.md` - Symbolic link to the latest version
 
-### 3. In Claude hochladen
+### 3. Upload to Claude
 
-1. Öffnen Sie [claude.ai](https://claude.ai)
-2. Starten Sie eine neue Unterhaltung
-3. Klicken Sie auf das Büroklammer-Symbol (📎)
-4. Wählen Sie die generierte `arch-context_latest.md`
-5. Stellen Sie Ihre systemspezifische Frage
+1. Open [claude.ai](https://claude.ai)
+2. Start a new conversation
+3. Click the paperclip icon (📎)
+4. Select the generated `arch-context_latest.md`
+5. Ask your system-specific question
 
-## Beispiel-Anwendungsfälle
+![Claude interface with file upload](2025-07-01_13-16_1.png)
 
-- "Warum startet mein Audio-Service nicht?"
-- "Hilf mir Docker auf meinem System zu konfigurieren"
-- "Optimiere meine BTRFS-Einstellungen"
-- "Warum ist mein System langsam beim Booten?"
+## Example use cases
 
-Mit dem hochgeladenen Kontext kann Claude direkt auf Ihre spezifische Systemkonfiguration eingehen und passende Lösungen vorschlagen.
+- "Why isn't my audio service starting?"
+- "Help me configure Docker on my system"
+- "Optimize my BTRFS settings"
+- "Why is my system slow to boot?"
 
-## Datenschutz
+With the uploaded context, Claude can directly address your specific system configuration and suggest appropriate solutions.
 
-Das Script:
-- Filtert sensible Daten (Passwörter, E-Mails, IPs)
-- Speichert alles lokal
-- Überträgt keine Daten automatisch
+### Example: Claude helps with PipeWire audio issues
+
+![Claude analyzing PipeWire configuration](2025-07-01_13-16.png)
+
+In this example, Claude recognizes from the system context that PipeWire is installed and provides specific commands for problem diagnosis.
+
+## Privacy
+
+The script:
+- Filters sensitive data (passwords, emails, IPs)
+- Stores everything locally
+- Does not automatically transmit any data

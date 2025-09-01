@@ -338,7 +338,186 @@ if should_run_module "display"; then
     collect_config "$HOME/.config/hypr/hyprland.conf" "Hyprland Configuration" 50
 fi
 
-# 8. Network Configuration
+# 8. Themes, Fonts & Appearance
+if should_run_module "themes"; then
+    echo "# Themes, Fonts & Appearance Configuration" >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+
+    # GTK Themes
+    echo "## GTK Themes" >> "$OUTPUT_FILE"
+    if [[ -f "$HOME/.config/gtk-3.0/settings.ini" ]]; then
+        log "Collecting GTK3 theme settings"
+        echo "### GTK3 Settings" >> "$OUTPUT_FILE"
+        echo '```ini' >> "$OUTPUT_FILE"
+        grep -E "gtk-(theme|icon|font|cursor)" "$HOME/.config/gtk-3.0/settings.ini" 2>/dev/null >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        echo "" >> "$OUTPUT_FILE"
+    fi
+
+    if [[ -f "$HOME/.config/gtk-4.0/settings.ini" ]]; then
+        log "Collecting GTK4 theme settings"
+        echo "### GTK4 Settings" >> "$OUTPUT_FILE"
+        echo '```ini' >> "$OUTPUT_FILE"
+        grep -E "gtk-(theme|icon|font|cursor)" "$HOME/.config/gtk-4.0/settings.ini" 2>/dev/null >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        echo "" >> "$OUTPUT_FILE"
+    fi
+
+    if [[ -f "$HOME/.gtkrc-2.0" ]]; then
+        log "Collecting GTK2 theme settings"
+        echo "### GTK2 Settings" >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        grep -E "gtk-theme-name|gtk-icon-theme-name|gtk-font-name|gtk-cursor-theme" "$HOME/.gtkrc-2.0" 2>/dev/null | head -10 >> "$OUTPUT_FILE" || echo "No GTK2 theme settings found" >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        echo "" >> "$OUTPUT_FILE"
+    fi
+
+    # GNOME/GSettings themes
+    if command -v gsettings &> /dev/null && [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
+        echo "### GNOME Theme Settings" >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        echo "GTK Theme: $(gsettings get org.gnome.desktop.interface gtk-theme 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Icon Theme: $(gsettings get org.gnome.desktop.interface icon-theme 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Cursor Theme: $(gsettings get org.gnome.desktop.interface cursor-theme 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Font: $(gsettings get org.gnome.desktop.interface font-name 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Monospace Font: $(gsettings get org.gnome.desktop.interface monospace-font-name 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Window Theme: $(gsettings get org.gnome.desktop.wm.preferences theme 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Shell Theme: $(gsettings get org.gnome.shell.extensions.user-theme name 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        echo "" >> "$OUTPUT_FILE"
+    fi
+
+    # KDE/Plasma themes
+    if command -v kreadconfig5 &> /dev/null && [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]]; then
+        echo "### KDE/Plasma Theme Settings" >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        echo "Color Scheme: $(kreadconfig5 --file kdeglobals --group General --key ColorScheme 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Theme Name: $(kreadconfig5 --file kdeglobals --group General --key Name 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Icon Theme: $(kreadconfig5 --file kdeglobals --group Icons --key Theme 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Cursor Theme: $(kreadconfig5 --file kcminputrc --group Mouse --key cursorTheme 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Plasma Theme: $(kreadconfig5 --file plasmarc --group Theme --key name 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Window Decoration: $(kreadconfig5 --file kwinrc --group org.kde.kdecoration2 --key theme 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        echo "" >> "$OUTPUT_FILE"
+    fi
+
+    # XFCE themes
+    if command -v xfconf-query &> /dev/null && [[ "$XDG_CURRENT_DESKTOP" == "XFCE" ]]; then
+        echo "### XFCE Theme Settings" >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        echo "GTK Theme: $(xfconf-query -c xsettings -p /Net/ThemeName 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Icon Theme: $(xfconf-query -c xsettings -p /Net/IconThemeName 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Cursor Theme: $(xfconf-query -c xsettings -p /Gtk/CursorThemeName 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Font: $(xfconf-query -c xsettings -p /Gtk/FontName 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo "Window Manager Theme: $(xfconf-query -c xfwm4 -p /general/theme 2>/dev/null || echo 'not set')" >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        echo "" >> "$OUTPUT_FILE"
+    fi
+
+    # Qt5 Themes
+    if [[ -f "$HOME/.config/qt5ct/qt5ct.conf" ]]; then
+        echo "## Qt5 Theme Configuration" >> "$OUTPUT_FILE"
+        echo '```ini' >> "$OUTPUT_FILE"
+        grep -E "style=|icon_theme=|color_scheme_path=" "$HOME/.config/qt5ct/qt5ct.conf" 2>/dev/null | head -10 >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        echo "" >> "$OUTPUT_FILE"
+    fi
+
+    # Kvantum themes
+    if [[ -f "$HOME/.config/Kvantum/kvantum.kvconfig" ]]; then
+        echo "## Kvantum Theme" >> "$OUTPUT_FILE"
+        echo '```ini' >> "$OUTPUT_FILE"
+        grep -E "theme=" "$HOME/.config/Kvantum/kvantum.kvconfig" 2>/dev/null >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        echo "" >> "$OUTPUT_FILE"
+    fi
+
+    # Font Configuration
+    echo "## Font Configuration" >> "$OUTPUT_FILE"
+    
+    # System fonts
+    echo "### Configured System Fonts" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    if command -v fc-match &> /dev/null; then
+        echo "Default Sans: $(fc-match sans 2>/dev/null)" >> "$OUTPUT_FILE"
+        echo "Default Serif: $(fc-match serif 2>/dev/null)" >> "$OUTPUT_FILE"
+        echo "Default Mono: $(fc-match mono 2>/dev/null)" >> "$OUTPUT_FILE"
+    else
+        echo "fontconfig not installed" >> "$OUTPUT_FILE"
+    fi
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+
+    # Font config
+    if [[ -f "$HOME/.config/fontconfig/fonts.conf" ]]; then
+        collect_config "$HOME/.config/fontconfig/fonts.conf" "Fontconfig User Settings" 50 false
+    fi
+
+    # Terminal fonts
+    if [[ -f "$HOME/.config/alacritty/alacritty.yml" ]] || [[ -f "$HOME/.config/alacritty/alacritty.toml" ]]; then
+        echo "### Alacritty Font" >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        if [[ -f "$HOME/.config/alacritty/alacritty.yml" ]]; then
+            grep -A3 "font:" "$HOME/.config/alacritty/alacritty.yml" 2>/dev/null | head -10 >> "$OUTPUT_FILE"
+        else
+            grep -E "^\[font" -A5 "$HOME/.config/alacritty/alacritty.toml" 2>/dev/null | head -10 >> "$OUTPUT_FILE"
+        fi
+        echo '```' >> "$OUTPUT_FILE"
+        echo "" >> "$OUTPUT_FILE"
+    fi
+
+    if [[ -f "$HOME/.config/kitty/kitty.conf" ]]; then
+        echo "### Kitty Font" >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        grep -E "^font_family|^font_size" "$HOME/.config/kitty/kitty.conf" 2>/dev/null >> "$OUTPUT_FILE"
+        echo '```' >> "$OUTPUT_FILE"
+        echo "" >> "$OUTPUT_FILE"
+    fi
+
+    # Font rendering settings
+    if [[ -f "/etc/fonts/conf.d/10-hinting-slight.conf" ]] || [[ -f "$HOME/.config/fontconfig/conf.d/10-hinting-slight.conf" ]]; then
+        echo "### Font Rendering" >> "$OUTPUT_FILE"
+        echo "Hinting: Slight" >> "$OUTPUT_FILE"
+    elif [[ -f "/etc/fonts/conf.d/10-hinting-full.conf" ]]; then
+        echo "### Font Rendering" >> "$OUTPUT_FILE"
+        echo "Hinting: Full" >> "$OUTPUT_FILE"
+    fi
+
+    if [[ -f "/etc/fonts/conf.d/10-sub-pixel-rgb.conf" ]]; then
+        echo "Subpixel Rendering: RGB" >> "$OUTPUT_FILE"
+    elif [[ -f "/etc/fonts/conf.d/10-sub-pixel-bgr.conf" ]]; then
+        echo "Subpixel Rendering: BGR" >> "$OUTPUT_FILE"
+    fi
+    echo "" >> "$OUTPUT_FILE"
+
+    # Installed theme packages
+    echo "## Installed Theme Packages" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    pacman -Q | grep -E "(theme|icon|cursor|font)" | grep -vE "lib|python|perl|ruby" | sort >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+
+    # Icon theme directories
+    echo "## Available Icon Themes" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    ls -1 /usr/share/icons/ 2>/dev/null | grep -v "default\|hicolor" | head -20 >> "$OUTPUT_FILE"
+    if [[ -d "$HOME/.local/share/icons" ]]; then
+        echo "" >> "$OUTPUT_FILE"
+        echo "User Icon Themes:" >> "$OUTPUT_FILE"
+        ls -1 "$HOME/.local/share/icons/" 2>/dev/null | head -10 >> "$OUTPUT_FILE"
+    fi
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+
+    # Cursor themes
+    echo "## Available Cursor Themes" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    find /usr/share/icons ~/.local/share/icons -maxdepth 2 -name "cursor.theme" 2>/dev/null | xargs -I{} dirname {} | xargs -I{} basename {} | sort -u | head -20 >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+fi
+
+# 9. Network Configuration
 if should_run_module "network"; then
     echo "# Network Configuration" >> "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
@@ -357,7 +536,7 @@ if should_run_module "network"; then
     fi
 fi
 
-# 9. Container & Virtualization
+# 10. Container & Virtualization
 if should_run_module "containers"; then
     echo "# Container & Virtualization" >> "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
@@ -391,7 +570,7 @@ if should_run_module "containers"; then
     fi
 fi
 
-# 10. Systemd Services
+# 11. Systemd Services
 if should_run_module "services"; then
     echo "# Systemd Services" >> "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
@@ -403,7 +582,7 @@ if should_run_module "services"; then
     safe_exec "systemd-analyze critical-chain" "Boot Critical Chain"
 fi
 
-# 11. Development Environment
+# 12. Development Environment
 if should_run_module "development"; then
     echo "# Development Environment" >> "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
@@ -455,7 +634,7 @@ if should_run_module "development"; then
     echo "" >> "$OUTPUT_FILE"
 fi
 
-# 12. Shell Environment
+# 13. Shell Environment
 if should_run_module "shell"; then
     echo "# Shell Environment" >> "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
@@ -479,7 +658,7 @@ if should_run_module "shell"; then
     echo "" >> "$OUTPUT_FILE"
 fi
 
-# 13. Security Configuration
+# 14. Security Configuration
 if should_run_module "security"; then
     echo "# Security Configuration" >> "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
@@ -500,7 +679,7 @@ if should_run_module "security"; then
     safe_exec "sudo -n grep -E '^[^#]' /etc/sudoers 2>/dev/null | head -10 || echo 'Sudoers file requires sudo'" "Sudoers Configuration (Top 10 lines)"
 fi
 
-# 14. Backup & Sync Tools
+# 15. Backup & Sync Tools
 if should_run_module "backup"; then
     echo "# Backup & Synchronization" >> "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
@@ -528,7 +707,7 @@ if should_run_module "backup"; then
     fi
 fi
 
-# 15. Performance Tuning
+# 16. Performance Tuning
 if should_run_module "performance"; then
     echo "# Performance & Resource Management" >> "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
@@ -554,7 +733,7 @@ if should_run_module "performance"; then
     safe_exec "journalctl --disk-usage" "Journal Disk Usage"
 fi
 
-# 16. Multimedia Codecs
+# 17. Multimedia Codecs
 if should_run_module "multimedia"; then
     echo "# Multimedia Configuration" >> "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
@@ -572,7 +751,7 @@ if should_run_module "multimedia"; then
     safe_exec "pacman -Q | grep -E 'codec|ffmpeg|gstreamer' | sort" "Installed Codecs"
 fi
 
-# 17. Summary
+# 18. Summary
 if should_run_module "summary"; then
     echo "# System Summary" >> "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
@@ -650,8 +829,8 @@ echo ""
 
 # Show available modules
 if $BASIC_MODE || [ -n "$SELECTED_MODULES" ]; then
-    echo "${INFO}Available modules for --modules option:${NC}"
-    echo "  hardware, os, boot, packages, config, audio, display, network,"
+    echo "${BLUE}Available modules for --modules option:${NC}"
+    echo "  hardware, os, boot, packages, config, audio, display, themes, network,"
     echo "  containers, services, development, shell, security, backup,"
     echo "  performance, multimedia, summary"
     echo ""

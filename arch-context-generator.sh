@@ -330,6 +330,46 @@ if should_run_module "display"; then
     elif [[ "$XDG_CURRENT_DESKTOP" == "GNOME" ]]; then
         safe_exec "gnome-shell --version" "GNOME Version"
         safe_exec "gsettings get org.gnome.desktop.interface gtk-theme" "GTK Theme"
+    elif [[ "$XDG_CURRENT_DESKTOP" == "XFCE" ]] || command -v xfce4-session &> /dev/null; then
+        safe_exec "xfce4-session --version | head -1" "XFCE Version"
+        
+        # XFCE Panel Configuration
+        if command -v xfconf-query &> /dev/null; then
+            echo "## XFCE Panel Configuration" >> "$OUTPUT_FILE"
+            
+            # Panel properties
+            echo "### Panel Properties" >> "$OUTPUT_FILE"
+            echo '```' >> "$OUTPUT_FILE"
+            xfconf-query -c xfce4-panel -p /panels -lv 2>/dev/null | head -20 >> "$OUTPUT_FILE" || echo "Could not query panel properties" >> "$OUTPUT_FILE"
+            echo '```' >> "$OUTPUT_FILE"
+            echo "" >> "$OUTPUT_FILE"
+            
+            # Panel plugins
+            echo "### Panel Plugins" >> "$OUTPUT_FILE"
+            echo '```' >> "$OUTPUT_FILE"
+            xfconf-query -c xfce4-panel -lv 2>/dev/null | grep -E "plugin-[0-9]+" | grep -v "/plugin-ids" | sort -V | head -50 >> "$OUTPUT_FILE" || echo "Could not query panel plugins" >> "$OUTPUT_FILE"
+            echo '```' >> "$OUTPUT_FILE"
+            echo "" >> "$OUTPUT_FILE"
+            
+            # Plugin IDs and their types
+            echo "### Active Panel Plugin Types" >> "$OUTPUT_FILE"
+            echo '```' >> "$OUTPUT_FILE"
+            for plugin_id in $(xfconf-query -c xfce4-panel -p /plugins/plugin-ids 2>/dev/null | tr -d '[],' | tr ' ' '\n'); do
+                plugin_name=$(xfconf-query -c xfce4-panel -p /plugins/plugin-${plugin_id} 2>/dev/null)
+                if [[ -n "$plugin_name" ]]; then
+                    echo "Plugin $plugin_id: $plugin_name" >> "$OUTPUT_FILE"
+                fi
+            done 2>/dev/null || echo "Could not enumerate plugin types" >> "$OUTPUT_FILE"
+            echo '```' >> "$OUTPUT_FILE"
+            echo "" >> "$OUTPUT_FILE"
+            
+            # Panel position and size
+            echo "### Panel Layout" >> "$OUTPUT_FILE"
+            echo '```' >> "$OUTPUT_FILE"
+            xfconf-query -c xfce4-panel -lv 2>/dev/null | grep -E "(position|size|length|mode)" | head -20 >> "$OUTPUT_FILE" || echo "Could not query panel layout" >> "$OUTPUT_FILE"
+            echo '```' >> "$OUTPUT_FILE"
+            echo "" >> "$OUTPUT_FILE"
+        fi
     fi
 
     # Window Manager Configs
@@ -751,7 +791,170 @@ if should_run_module "multimedia"; then
     safe_exec "pacman -Q | grep -E 'codec|ffmpeg|gstreamer' | sort" "Installed Codecs"
 fi
 
-# 18. Summary
+# 18. User Configuration Overview
+if should_run_module "userconfig"; then
+    echo "# User Configuration Overview" >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "## ~/.config Directory Structure" >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    log "Collecting user configuration overview..."
+    
+    echo "### Configuration Tree (Max depth 2)" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    # Use tree with depth limit and ignore common cache/state dirs
+    if command -v tree &> /dev/null; then
+        tree -L 2 -d --noreport ~/.config 2>/dev/null \
+            | grep -v -E "(Cache|cache|Crash Reports|GPUCache|Code Cache|BraveSoftware/Brave-Browser/.*/(Storage|Cache)|chromium/.*/Default/(Cache|Storage)|google-chrome/.*/Default/(Cache|Storage))" \
+            >> "$OUTPUT_FILE" || echo "Error reading ~/.config directory structure" >> "$OUTPUT_FILE"
+    else
+        # Fallback to find if tree is not available
+        find ~/.config -maxdepth 2 -type d 2>/dev/null \
+            | grep -v -E "(Cache|cache|Crash Reports|GPUCache|Code Cache)" \
+            | sort | sed 's|^/home/[^/]*/|~/|' >> "$OUTPUT_FILE"
+    fi
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "### Application Configurations Present" >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "#### Development Tools" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    for app in nvim vim neovim code VSCodium sublime-text jetbrains emacs helix zed; do
+        if [[ -d "$HOME/.config/$app" ]]; then
+            echo "✓ $app" >> "$OUTPUT_FILE"
+        fi
+    done
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "#### Terminal & Shell" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    for app in alacritty kitty terminator tilix wezterm fish zsh bash starship oh-my-posh; do
+        if [[ -d "$HOME/.config/$app" ]]; then
+            echo "✓ $app" >> "$OUTPUT_FILE"
+        fi
+    done
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "#### Window Managers & Compositors" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    for app in i3 sway hypr awesome bspwm qtile xmonad waybar polybar rofi wofi dunst picom; do
+        if [[ -d "$HOME/.config/$app" ]]; then
+            echo "✓ $app" >> "$OUTPUT_FILE"
+        fi
+    done
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "#### System Tools" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    for app in systemd htop btop bashtop neofetch fastfetch; do
+        if [[ -d "$HOME/.config/$app" ]]; then
+            echo "✓ $app" >> "$OUTPUT_FILE"
+        fi
+    done
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "#### Multimedia" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    for app in mpv vlc obs spotify cmus ncmpcpp pipewire pulse; do
+        if [[ -d "$HOME/.config/$app" ]]; then
+            echo "✓ $app" >> "$OUTPUT_FILE"
+        fi
+    done
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "#### Browsers" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    for app in chromium google-chrome BraveSoftware firefox vivaldi opera microsoft-edge; do
+        if [[ -d "$HOME/.config/$app" ]]; then
+            echo "✓ $app" >> "$OUTPUT_FILE"
+        fi
+    done
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "#### Communication" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    for app in discord slack teams Element Signal telegram; do
+        if [[ -d "$HOME/.config/$app" ]]; then
+            echo "✓ $app" >> "$OUTPUT_FILE"
+        fi
+    done
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "### Configuration Files Overview" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    # Count config files by extension
+    echo "Configuration file types in ~/.config:" >> "$OUTPUT_FILE"
+    find ~/.config -maxdepth 3 -type f -name "*.conf" -o -name "*.yaml" -o -name "*.yml" -o -name "*.toml" -o -name "*.json" -o -name "*.ini" 2>/dev/null \
+        | sed 's/.*\.//' | sort | uniq -c | sort -rn | head -20 >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    echo "Total configuration directories: $(find ~/.config -maxdepth 1 -type d 2>/dev/null | wc -l)" >> "$OUTPUT_FILE"
+    echo "Total configuration files: $(find ~/.config -type f 2>/dev/null | wc -l)" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "### Environment Variables" >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    log "Collecting environment variables (with secrets redacted)..."
+    
+    echo "#### System & Shell Environment" >> "$OUTPUT_FILE"
+    echo '```bash' >> "$OUTPUT_FILE"
+    env | grep -E '^(PATH|HOME|USER|SHELL|TERM|EDITOR|VISUAL|BROWSER|PAGER|LANG|LC_|TZ|HOSTNAME)=' | sort | filter_sensitive >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "#### Display & Desktop Environment" >> "$OUTPUT_FILE"
+    echo '```bash' >> "$OUTPUT_FILE"
+    env | grep -E '^(DISPLAY|WAYLAND_DISPLAY|XDG_|DESKTOP_SESSION|QT_|GTK_|GDK_|XCURSOR_|XAUTHORITY)=' | sort | filter_sensitive >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "#### Development Environment" >> "$OUTPUT_FILE"
+    echo '```bash' >> "$OUTPUT_FILE"
+    env | grep -E '^(JAVA_HOME|PYTHON|NODE_|NPM_|CARGO_|RUSTUP_|GOPATH|GOROOT|GEM_|RUBY|PERL|CMAKE_|CC|CXX|CFLAGS|LDFLAGS)=' | sort | filter_sensitive >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "#### Application-Specific Variables" >> "$OUTPUT_FILE"
+    echo '```bash' >> "$OUTPUT_FILE"
+    # Filter out system vars already shown and apply sensitive filter more aggressively
+    env | grep -v -E '^(PATH|HOME|USER|SHELL|TERM|EDITOR|VISUAL|BROWSER|PAGER|LANG|LC_|TZ|HOSTNAME|DISPLAY|WAYLAND_DISPLAY|XDG_|DESKTOP_SESSION|QT_|GTK_|GDK_|XCURSOR_|XAUTHORITY|JAVA_HOME|PYTHON|NODE_|NPM_|CARGO_|RUSTUP_|GOPATH|GOROOT|GEM_|RUBY|PERL|CMAKE_|CC|CXX|CFLAGS|LDFLAGS|PS1|PS2|PS3|PS4|HISTSIZE|HISTFILE|HISTCONTROL|OLDPWD|PWD|SHLVL|LOGNAME|_)=' | \
+        sed -E \
+            -e 's/(KEY|TOKEN|SECRET|PASSWORD|PASSWD|API|AUTH|CREDENTIAL|PRIVATE|ACCESS)([_A-Z0-9]*)=.*/\1\2=<REDACTED>/gi' \
+            -e 's/([A-Z_]*_KEY)=.*/\1=<REDACTED>/g' \
+            -e 's/([A-Z_]*_TOKEN)=.*/\1=<REDACTED>/g' \
+            -e 's/([A-Z_]*_SECRET)=.*/\1=<REDACTED>/g' \
+            -e 's/([A-Z_]*_PASS(WORD)?)=.*/\1=<REDACTED>/g' \
+            -e 's/([A-Z_]*_API_[A-Z_]*)=.*/\1=<REDACTED>/g' \
+            -e 's/(OPENAI|ANTHROPIC|AZURE|AWS|GCP|GITHUB|GITLAB|BITBUCKET)([_A-Z0-9]*)=.*/\1\2=<REDACTED>/g' \
+            -e 's/(DATABASE_URL|DB_[A-Z_]*|REDIS_URL|MONGO_[A-Z_]*)=.*/\1=<REDACTED>/g' \
+            -e 's/=([a-zA-Z0-9]{20,})/=<REDACTED_LONG_TOKEN>/g' | \
+        sort | head -50 >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+    
+    echo "#### Environment Summary" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    echo "Total environment variables: $(env | wc -l)" >> "$OUTPUT_FILE"
+    echo "PATH entries: $(echo $PATH | tr ':' '\n' | wc -l)" >> "$OUTPUT_FILE"
+    echo "Shell: $SHELL" >> "$OUTPUT_FILE"
+    echo "Terminal: $TERM" >> "$OUTPUT_FILE"
+    echo "Session type: ${XDG_SESSION_TYPE:-not set}" >> "$OUTPUT_FILE"
+    echo '```' >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
+fi
+
+# 19. Summary
 if should_run_module "summary"; then
     echo "# System Summary" >> "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
@@ -832,6 +1035,6 @@ if $BASIC_MODE || [ -n "$SELECTED_MODULES" ]; then
     echo "${BLUE}Available modules for --modules option:${NC}"
     echo "  hardware, os, boot, packages, config, audio, display, themes, network,"
     echo "  containers, services, development, shell, security, backup,"
-    echo "  performance, multimedia, summary"
+    echo "  performance, multimedia, userconfig, summary"
     echo ""
 fi

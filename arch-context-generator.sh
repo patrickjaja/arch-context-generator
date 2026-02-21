@@ -7,9 +7,7 @@ set -euo pipefail
 # Configuration - Output in the same directory as the script
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 OUTPUT_DIR="${SCRIPT_DIR}"
-TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
-OUTPUT_FILE="${OUTPUT_DIR}/arch-context_${TIMESTAMP}.md"
-LATEST_LINK="${OUTPUT_DIR}/arch-context_latest.md"
+OUTPUT_FILE="${OUTPUT_DIR}/arch-context_latest.md"
 
 # Options
 BASIC_MODE=false
@@ -1008,13 +1006,6 @@ EOF
 EOF
 fi
 
-# Create symbolic link to latest version
-ln -sf "$OUTPUT_FILE" "$LATEST_LINK"
-
-# Cleanup: Keep only the last 5 context files
-log "Cleaning up old context files..."
-ls -t "$OUTPUT_DIR"/arch-context_*.md 2>/dev/null | tail -n +6 | xargs -r rm
-
 # Completion
 echo ""
 log "${GREEN}✓ System context generated successfully!${NC}"
@@ -1022,12 +1013,7 @@ echo ""
 echo "File saved to:"
 echo "  ${BLUE}$OUTPUT_FILE${NC}"
 echo ""
-echo "Symbolic link (always current):"
-echo "  ${BLUE}$LATEST_LINK${NC}"
-echo ""
 echo "Size: $(du -h "$OUTPUT_FILE" | cut -f1) | Lines: $(wc -l < "$OUTPUT_FILE")"
-echo ""
-echo "${YELLOW}Tip:${NC} Copy the contents of ${BLUE}$LATEST_LINK${NC} to your Claude project!"
 echo ""
 
 # Show available modules

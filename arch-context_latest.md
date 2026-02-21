@@ -1,1 +1,2067 @@
-/home/patrickjaja/development/arch-context-generator/arch-context_2025-09-01_10-19-11.md
+# Arch Linux System Context
+Generated: Mo 5. Jan 09:11:30 CET 2026
+Hostname: 
+Script Version: 2.0
+Mode: Full
+
+---
+
+# Hardware & System Information
+
+## Kernel Information
+```
+Linux jajapc 6.17.9-arch1-1 #1 SMP PREEMPT_DYNAMIC Mon, 24 Nov 2025 15:21:09 +0000 x86_64 GNU/Linux
+```
+
+## CPU Information
+```
+CPU(s):                                  16
+Model name:                              12th Gen Intel(R) Core(TM) i7-1260P
+CPU family:                              6
+Socket(s):                               1
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock_detect user_shstk avx_vnni dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req hfi vnmi umip pku ospke waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize arch_lbr ibt flush_l1d arch_capabilities
+NUMA node0 CPU(s):                       0-15
+```
+
+## Memory Information
+```
+               total        used        free      shared  buff/cache   available
+Mem:            30Gi       4,7Gi        23Gi       665Mi       3,5Gi        26Gi
+Swap:           29Gi          0B        29Gi
+```
+
+## Disk Layout
+```
+NAME          SIZE TYPE MOUNTPOINT FSTYPE    MODEL
+nvme0n1     953,9G disk                      PM9A1 NVMe Samsung 1024GB
+├─nvme0n1p1   100M part /boot/efi  vfat      
+├─nvme0n1p2    16M part                      
+├─nvme0n1p3 210,8G part            BitLocker 
+├─nvme0n1p4   2,5G part            vfat      
+├─nvme0n1p5 739,6G part /          ext4      
+└─nvme0n1p6   828M part            ntfs      
+```
+
+## Disk Usage
+```
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p5  727G  527G  164G  77% /
+/dev/nvme0n1p1   96M   65M   32M  68% /boot/efi
+```
+
+## Key Hardware Components
+```
+00:02.0 VGA compatible controller [0300]: Intel Corporation Alder Lake-P GT2 [Iris Xe Graphics] [8086:46a6] (rev 0c)
+00:14.3 Network controller [0280]: Intel Corporation Alder Lake-P PCH CNVi WiFi [8086:51f0] (rev 01)
+00:1f.3 Multimedia audio controller [0401]: Intel Corporation Alder Lake PCH-P High Definition Audio Controller [8086:51c8] (rev 01)
+01:00.0 Non-Volatile memory controller [0108]: Samsung Electronics Co Ltd NVMe SSD Controller PM9A1/PM9A3/980PRO [144d:a80a]
+```
+
+## Hardware Sensors
+```
+ucsi_source_psy_USBC000:002-isa-0000
+Adapter: ISA adapter
+in0:          20.00 V  (min =  +5.00 V, max = +20.00 V)
+curr1:         2.70 A  (max =  +2.70 A)
+
+iwlwifi_1-virtual-0
+Adapter: Virtual device
+temp1:        +39.0°C  
+
+dell_smm-virtual-0
+Adapter: Virtual device
+fan1:           0 RPM  (min =    0 RPM, max = 6800 RPM)
+fan2:           0 RPM  (min =    0 RPM, max = 6500 RPM)
+temp1:        +26.0°C  
+temp2:        +39.0°C  
+temp3:        +40.0°C  
+temp4:        +40.0°C  
+temp5:        +43.0°C  
+temp6:        +29.0°C  
+temp7:        +20.0°C  
+pwm1:              0%
+pwm2:              0%
+
+nvme-pci-0100
+Adapter: PCI adapter
+Composite:    +40.9°C  (low  = -273.1°C, high = +82.8°C)
+                       (crit = +84.8°C)
+Sensor 1:     +40.9°C  (low  = -273.1°C, high = +65261.8°C)
+Sensor 2:     +41.9°C  (low  = -273.1°C, high = +65261.8°C)
+
+ucsi_source_psy_USBC000:001-isa-0000
+Adapter: ISA adapter
+in0:           5.00 V  (min =  +5.00 V, max =  +5.00 V)
+curr1:       1000.00 mA (max =  +1.00 A)
+
+coretemp-isa-0000
+Adapter: ISA adapter
+Package id 0:  +52.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 0:        +48.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 4:        +52.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 8:        +49.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 12:       +51.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 16:       +48.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 17:       +48.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 18:       +48.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 19:       +48.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 20:       +44.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 21:       +44.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 22:       +44.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 23:       +44.0°C  (high = +100.0°C, crit = +100.0°C)
+
+dell_ddv-virtual-0
+Adapter: Virtual device
+CPU Fan:        0 RPM
+CPU Fan:        0 RPM
+CPU:          +26.0°C  (low  =  +0.0°C, high =  +0.0°C)
+Ambient:      +39.0°C  (low  =  +0.0°C, high =  +0.0°C)
+SODIMM:       +40.0°C  (low  =  +0.0°C, high =  +0.0°C)
+Ambient:      +40.0°C  (low  =  +0.0°C, high =  +0.0°C)
+Ambient:      +43.0°C  (low  =  +0.0°C, high =  +0.0°C)
+Ambient:      +29.0°C  (low  =  +0.0°C, high =  +0.0°C)
+Unknown:      +20.0°C  (low  =  +0.0°C, high =  +0.0°C)
+
+BAT0-acpi-0
+Adapter: ACPI interface
+in0:          12.12 V  
+temp:         +20.3°C  
+curr1:       886.00 mA 
+
+```
+
+## NVMe Health
+```
+sudo: a password is required
+smartctl requires sudo
+```
+
+# Operating System Details
+
+## OS Release Information
+```
+NAME="Arch Linux"
+PRETTY_NAME="Arch Linux"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://archlinux.org/"
+DOCUMENTATION_URL="https://wiki.archlinux.org/"
+SUPPORT_URL="https://bbs.archlinux.org/"
+BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
+PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+LOGO=archlinux-logo
+```
+
+## Systemd Version
+```
+systemd 258 (258.3-1-arch)
++PAM +AUDIT -SELINUX +APPARMOR -IMA +IPE +SMACK +SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP -SYSVINIT +LIBARCHIVE
+```
+
+## Locale Settings
+```
+System Locale: LANG=en_US.UTF-8
+               LC_NUMERIC=de_DE.UTF-8
+               LC_TIME=de_DE.UTF-8
+               LC_MONETARY=de_DE.UTF-8
+               LC_PAPER=de_DE.UTF-8
+               LC_NAME=de_DE.UTF-8
+               LC_ADDRESS=de_DE.UTF-8
+               LC_TELEPHONE=de_DE.UTF-8
+               LC_MEASUREMENT=de_DE.UTF-8
+               LC_IDENTIFICATION=de_DE.UTF-8
+    VC Keymap: de
+   X11 Layout: de
+    X11 Model: dell101
+  X11 Variant: nodeadkeys
+```
+
+## Time & Date Settings
+```
+               Local time: Mo 2026-01-05 09:11:31 CET
+           Universal time: Mo 2026-01-05 08:11:31 UTC
+                 RTC time: Mo 2026-01-05 08:11:31
+                Time zone: Europe/Berlin (CET, +0100)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+```
+
+## Hostname Configuration
+```
+ Static hostname: jajapc
+       Icon name: computer-laptop
+         Chassis: laptop 💻
+      Machine ID: fa40f04e442940fa844c0b613295a734
+         Boot ID: a00d1da1c3544606a8799ea558661e3b
+Operating System: Arch Linux
+          Kernel: Linux 6.17.9-arch1-1
+    Architecture: x86-64
+ Hardware Vendor: Dell Inc.
+  Hardware Model: XPS 9320
+    Hardware SKU: 0AF3
+Hardware Version: A00
+Firmware Version: 2.0.0
+   Firmware Date: Mon 2023-02-06
+    Firmware Age: 2y 10month 4w 1d
+```
+
+# Boot & Kernel Configuration
+
+## Kernel Command Line
+```
+BOOT_IMAGE=/boot/vmlinuz-linux root=UUID=5c148df8-cbd4-4e4f-aba0-4bb6d63778c8 rw loglevel=3 audit=0 nvme_load=yes
+```
+
+## Available Kernels
+```
+-rw------- 1 root root 200626358 15. Dez 08:17 /boot/initramfs-linux-fallback.img
+-rw------- 1 root root  20822659 15. Dez 08:17 /boot/initramfs-linux.img
+-rw-r--r-- 1 root root  16445632 27. Nov 14:35 /boot/vmlinuz-linux
+```
+
+## GRUB Configuration
+File: `/etc/default/grub`
+```
+# GRUB boot loader configuration
+
+GRUB_DEFAULT="0"
+GRUB_TIMEOUT="1"
+GRUB_DISTRIBUTOR="ArcoLinux"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 audit=0 nvme_load=yes"
+GRUB_CMDLINE_LINUX=""
+
+# Preload both GPT and MBR modules so that they are not missed
+GRUB_PRELOAD_MODULES="part_gpt part_msdos"
+
+# Uncomment to enable booting from LUKS encrypted devices
+#GRUB_ENABLE_CRYPTODISK="y"
+
+# Set to 'countdown' or 'hidden' to change timeout behavior,
+# press ESC key to display menu.
+GRUB_TIMEOUT_STYLE="menu"
+
+# Uncomment to use basic console
+GRUB_TERMINAL_INPUT="console"
+
+# Uncomment to disable graphical terminal
+#GRUB_TERMINAL_OUTPUT="console"
+
+# The resolution used on graphical terminal
+# note that you can use only modes which your graphic card supports via VBE
+# you can see them in real GRUB with the command `videoinfo'
+GRUB_GFXMODE="auto"
+
+# Uncomment to allow the kernel use the same resolution used by grub
+GRUB_GFXPAYLOAD_LINUX="keep"
+
+# Uncomment if you want GRUB to pass to the Linux kernel the old parameter
+# format "root=/dev/xxx" instead of "root=/dev/disk/by-uuid/xxx"
+#GRUB_DISABLE_LINUX_UUID="true"
+
+# Uncomment to disable generation of recovery mode menu entries
+GRUB_DISABLE_RECOVERY="true"
+
+# Uncomment and set to the desired menu colors.  Used by normal and wallpaper
+# modes only.  Entries specified as foreground/background.
+#GRUB_COLOR_NORMAL="light-blue/black"
+#GRUB_COLOR_HIGHLIGHT="light-cyan/blue"
+
+# Uncomment one of them for the gfx desired, a image background or a gfxtheme
+#GRUB_BACKGROUND="/path/to/wallpaper"
+#GRUB_THEME="/boot/grub/themes/Vimix/theme.txt"
+
+# Uncomment to get a beep at GRUB start
+#GRUB_INIT_TUNE="480 440 1"
+... (64 lines total, showing first 50)
+```
+
+## Loaded Kernel Modules (Top 30)
+```
+Module                  Size  Used by
+nf_conntrack_netlink    61440  0
+xt_nat                 12288  22
+xt_tcpudp              16384  28
+iptable_raw            12288  1
+veth                   40960  0
+rfcomm                102400  4
+snd_seq_dummy          12288  0
+snd_hrtimer            12288  1
+snd_seq               131072  7 snd_seq_dummy
+xt_conntrack           12288  6
+xt_MASQUERADE          16384  6
+bridge                454656  0
+stp                    12288  1 bridge
+llc                    16384  2 bridge,stp
+xfrm_user              73728  1
+xfrm_algo              16384  1 xfrm_user
+ip6table_nat           12288  1
+ip6table_filter        12288  1
+ip6_tables             36864  2 ip6table_filter,ip6table_nat
+xt_set                 24576  0
+ip_set                 69632  1 xt_set
+iptable_nat            12288  5
+nf_nat                 61440  4 ip6table_nat,xt_nat,iptable_nat,xt_MASQUERADE
+nf_conntrack          196608  5 xt_conntrack,nf_nat,xt_nat,nf_conntrack_netlink,xt_MASQUERADE
+nf_defrag_ipv6         24576  1 nf_conntrack
+nf_defrag_ipv4         12288  1 nf_conntrack
+xt_addrtype            12288  4
+iptable_filter         12288  1
+nf_tables             389120  0
+Error executing: lsmod | head -30
+```
+
+# Package Management
+
+## Total Installed Packages Count
+```
+1884
+```
+
+## Explicitly Installed Packages (Grouped)
+```
+# Package Overview
+
+
+## Kernel & System
+linux
+linux-atm
+linux-firmware
+linux-firmware-marvell
+linux-firmware-qlogic
+linux-headers
+
+## X.org/Display
+xorg-bdftopcf
+xorg-iceauth
+xorg-mkfontscale
+xorg-server
+xorg-sessreg
+xorg-setxkbmap
+xorg-smproxy
+xorg-x11perf
+xorg-xauth
+xorg-xbacklight
+xorg-xcmsdb
+xorg-xcursorgen
+xorg-xdpyinfo
+xorg-xdriinfo
+xorg-xev
+xorg-xgamma
+xorg-xhost
+xorg-xinit
+xorg-xinput
+xorg-xkbcomp
+xorg-xkbevd
+xorg-xkbprint
+xorg-xkbutils
+xorg-xkill
+xorg-xlsatoms
+xorg-xlsclients
+xorg-xmodmap
+xorg-xpr
+xorg-xprop
+xorg-xrandr
+xorg-xrdb
+xorg-xrefresh
+xorg-xset
+xorg-xsetroot
+xorg-xvinfo
+xorg-xwd
+xorg-xwininfo
+xorg-xwud
+
+## GNOME/GTK
+gnome-disk-utility
+gnome-keyring
+gnome-screenshot
+gnome-shell-extensions
+gnome-software
+gnome-system-monitor
+gnome-terminal
+
+## Python
+python-pip
+python-pipx
+python-poetry
+python-pylint
+python-pyparted
+python-pywal
+python-virtualenv
+
+## Container & Virtualization
+docker
+docker-buildx
+docker-compose
+
+## Libraries
+lib32-giflib
+lib32-gnutls
+lib32-gst-plugins-base-libs
+lib32-gtk3
+lib32-libjpeg-turbo
+lib32-libpng
+lib32-libva
+lib32-libxcomposite
+lib32-libxinerama
+lib32-libxslt
+lib32-mpg123
+lib32-ocl-icd
+lib32-openal
+lib32-v4l-utils
+libdvdcss
+libfido2
+libgsf
+libmtp
+libopenraw
+libpwquality
+libusb-compat
+
+## Other Packages
+7zip
+accountsservice
+adobe-source-sans-fonts
+aic94xx-firmware
+alacritty
+alacritty-themes
+alsa-firmware
+alsa-lib
+alsa-plugins
+alsa-utils
+ananicy-cpp
+android-sdk
+android-sdk-build-tools
+android-sdk-platform-tools
+android-studio
+android-tools
+antigravity
+appstream
+arandr
+arc-gtk-theme
+arch-audit
+arch-install-scripts
+archiso
+archlinux-logout-git
+archlinux-tweak-tool-git
+arch-rebuild-order
+arch-repro-status
+arch-signoff
+asar
+asciinema
+atril
+ausweisapp2
+autorandr
+avahi
+awesome-terminal-fonts
+baobab
+base
+base-devel
+bash-completion
+bat
+bfg
+bibata-cursor-theme
+bind
+blueberry
+bluez
+bluez-libs
+bluez-utils
+boost-libs
+brave-bin
+broadcom-wl-dkms
+btop
+btrfs-progs
+cachyos-ananicy-rules-git
+candy-icons-git
+catfish
+chromium
+cinnamon
+cinnamon-translations
+claude-desktop-bin
+clonezilla
+code-insiders-bin
+composer
+cronie
+cryptsetup
+cups
+cups-filters
+cups-pdf
+dconf-editor
+ddrescue
+devtools
+devtoys-bin
+dex
+dhclient
+dialog
+diffutils
+dmenu
+dmidecode
+dmraid
+dnsmasq
+dosfstools
+downgrade
+drawio-desktop
+duf
+dxvk-mingw-git
+e2fsprogs
+easyeffects
+edk2-shell
+edu-arc-kde
+edu-chadwm-git
+edu-dot-files-git
+edu-hblock-git
+edu-rofi-git
+edu-rofi-themes-git
+edu-sddm-simplicity-git
+edu-shells-git
+edu-variety-config-git
+edu-xfce-git
+efibootmgr
+electron
+electron25-bin
+encfs
+epiphany
+espeak-ng
+etcher-bin
+ethtool
+evince
+exfatprogs
+exo
+expac
+f2fs-tools
+fastfetch-git
+fatresize
+fd
+feh
+ferdium-bin
+ffmpegthumbnailer
+figma-linux-bin
+file-roller
+firefox
+fish
+flameshot-imgur
+fluent-icon-theme-git
+font-manager
+freetype2
+fsarchiver
+galculator
+garcon
+geany
+geany-plugins
+ghostscript
+gimp
+git
+github-cli
+gksu
+go
+google-chrome
+google-cloud-cli
+gopls
+gpart
+gparted
+gpick
+gpm
+gptfdisk
+gradle
+grsync
+grub
+grub-customizer
+gsfonts
+gst-libav
+gst-plugin-pipewire
+gst-plugins-bad
+gst-plugins-base
+gst-plugins-good
+gst-plugins-ugly
+gstreamer
+gtop
+gufw
+gutenprint
+guvcview
+gvfs
+gvfs-afc
+gvfs-gphoto2
+gvfs-mtp
+gvfs-nfs
+gvfs-smb
+gvim
+handbrake
+hardcode-fixer-git
+hddtemp
+hdparm
+htop
+hunspell
+hunspell-en_us
+hwinfo
+hw-probe
+hyperv
+hyphen
+hyphen-en
+icoutils
+imagemagick
+imagewriter
+inkscape
+insync
+intltool
+inxi
+irssi
+iso-flag-png
+iw
+jetbrains-toolbox
+jfsutils
+jq
+jre17-openjdk
+jre-openjdk
+jsoncpp
+k6
+kcachegrind
+keepassxc
+kitty
+kvantum-qt5
+la-capitaine-icon-theme
+laptop-detect
+lastpass
+layan-gtk-theme-git
+less
+lm_sensors
+logrotate
+lohit-fonts
+lsb-release
+lshw
+lsp-plugins
+lsscsi
+lutris
+lvm2
+lxappearance
+lyrebird
+man-db
+man-pages
+mc
+mdadm
+meld
+memtest86+
+memtest86+-efi
+menulibre
+mesa
+mesa-utils
+mintlocale
+mintstick
+mkinitcpio
+mkinitcpio-firmware
+mkinitcpio-nfs-utils
+mkinitcpio-openswap
+mobile-broadband-provider-info
+modemmanager
+moreutils
+mousepad
+mtools
+mtpfs
+mugshot
+namcap
+nano
+nbd
+ndisc6
+nemo-fileroller
+neofetch-git
+neovim
+networkmanager
+network-manager-applet
+networkmanager-openconnect
+networkmanager-openvpn
+networkmanager-pptp
+networkmanager-vpnc
+nfs-utils
+nilfs-utils
+nomacs
+noto-fonts
+npm
+nss-mdns
+ntfs-3g
+ntp
+numlockx
+nvm
+nvme-cli
+obs-studio
+oh-my-zsh-git
+okular
+openbox-themes-pambudi-git
+openconnect
+open-iscsi
+openoffice-bin
+openresolv
+openssh
+openvpn
+os-prober
+otf-libertinus
+pace
+pacmanlogviewer
+pacquery
+parole
+partclone
+parted
+partimage
+pavucontrol
+pcsclite
+pdfarranger
+peek
+php
+php-amqp
+picom-git
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+pkgfile
+plank
+playerctl
+plocate
+pnpm
+polkit
+polkit-gnome
+poppler-glib
+poppler-qt5
+postman-bin
+powerline-fonts
+ppp
+pptpclient
+pragha
+pv
+qbittorrent
+qt5ct
+rate-mirrors
+refind
+reflector
+reiserfsprogs
+ripgrep
+ripgrep-all
+ristretto
+rofi
+rp-pppoe
+rsync
+rxvt-unicode
+rxvt-unicode-terminfo
+scour
+screen
+scrot
+sddm-git
+sdparm
+sg3_utils
+simple-scan
+simplescreenrecorder-qt6-git
+smartmontools
+sniffnet
+sof-firmware
+sparklines-git
+speedtest-cli
+squashfs-tools
+sshpass
+steam
+sublime-text-4
+sudo
+sweet-theme-git
+sxhkd
+syslinux
+system-config-printer
+tcpdump
+terminus-font
+testdisk
+the_platinum_searcher-bin
+the_silver_searcher
+thunar-archive-plugin
+thunar-extended
+thunar-media-tags-plugin
+thunar-shares-plugin
+thunar-volman
+time
+tinty-git
+tiny-rdm
+tk
+tlp
+tmux
+tpm2-tss
+traceroute
+ttf-anonymous-pro
+ttf-bitstream-vera
+ttf-caladea
+ttf-carlito
+ttf-cascadia-code
+ttf-cormorant
+ttf-croscore
+ttf-dejavu
+ttf-droid
+ttf-eurof
+ttf-fantasque-sans-mono
+ttf-fira-code
+ttf-fira-mono
+ttf-fira-sans
+ttf-hack
+ttf-ibm-plex
+ttf-inconsolata
+ttf-jetbrains-mono
+ttf-joypixels
+ttf-lato
+ttf-liberation
+ttf-linux-libertine
+ttf-linux-libertine-g
+ttf-mac-fonts
+ttf-meslo-nerd-font-powerlevel10k
+ttf-monofur
+ttf-ms-win10-auto
+ttf-nerd-fonts-symbols
+ttf-nerd-fonts-symbols-mono
+ttf-proggy-clean
+ttf-roboto
+ttf-roboto-mono
+ttf-sourcecodepro-nerd
+ttf-ubuntu-font-family
+ttf-wps-fonts
+tumbler
+udftools
+udiskie
+udisks2
+ufw
+unace
+unrar
+unzip
+upd72020x-fw
+upower
+urxvt-fullscreen
+urxvt-perls
+urxvt-resize-font-git
+usb_modeswitch
+usbmuxd
+usbutils
+uv
+variety
+ventoy-bin
+vimix-icon-theme-git
+virtualbox
+visual-studio-code-bin
+vivaldi
+vivaldi-ffmpeg-codecs
+vkd3d
+vlc
+volumeicon
+vpnc
+w3m
+wd719x-firmware
+webkit2gtk
+wget
+wine-staging
+winetricks
+wireless-regdb
+wireless_tools
+wmctrl
+woeusb
+woff2-font-awesome
+wpa_supplicant
+wps-office-cn
+wps-office-mime
+wrk
+wttr
+wvdial
+xapp
+xcolor
+xdebug
+xdg-desktop-portal-gtk
+xdg-user-dirs
+xdo
+xdotool
+xf86-input-elographics
+xf86-input-evdev
+xf86-input-libinput
+xf86-input-vmmouse
+xf86-input-void
+xf86-video-amdgpu
+xf86-video-ati
+xf86-video-fbdev
+xf86-video-openchrome
+xf86-video-vesa
+xfburn
+xfce4-appfinder
+xfce4-battery-plugin
+xfce4-clipman-plugin
+xfce4-cpufreq-plugin
+xfce4-cpugraph-plugin
+xfce4-datetime-plugin
+xfce4-dict
+xfce4-diskperf-plugin
+xfce4-eyes-plugin
+xfce4-fsguard-plugin
+xfce4-genmon-plugin
+xfce4-mailwatch-plugin
+xfce4-mount-plugin
+xfce4-mpc-plugin
+xfce4-netload-plugin
+xfce4-notes-plugin
+xfce4-notifyd
+xfce4-panel
+xfce4-panel-profiles
+xfce4-power-manager
+xfce4-screensaver
+xfce4-screenshooter
+xfce4-sensors-plugin
+xfce4-session
+xfce4-settings
+xfce4-smartbookmark-plugin
+xfce4-systemload-plugin
+xfce4-taskmanager
+xfce4-terminal
+xfce4-time-out-plugin
+xfce4-timer-plugin
+xfce4-verve-plugin
+xfce4-wavelan-plugin
+xfce4-weather-plugin
+xfce4-whiskermenu-plugin
+xfce4-xkb-plugin
+xfconf
+xfdesktop
+xfsprogs
+xfwm4
+xfwm4-themes
+xkeyboard-config
+xl2tpd
+xpdf
+xreader
+xsettingsd
+yad
+yamllint
+yay-git
+yt-dlp
+zenity
+zoom
+zsh
+zsh-completions
+zsh-syntax-highlighting
+```
+
+## AUR Packages
+```
+aic94xx-firmware 30-10.1
+alacritty-themes 6.0.2-1
+android-sdk 26.1.1-2.3
+android-sdk-build-tools r36.1-2
+android-sdk-platform-tools 36.0.0-1
+android-studio 2025.2.2.7-1
+antigravity 1.11.17-1
+arc-gtk-theme 20221218-2
+archlinux-logout-git 25.10-01
+archlinux-tweak-tool-git 25.11-01
+ast-firmware 501-1.1
+ausweisapp2 2.4.0-1
+betterlockscreen 4.4.0-1.3
+bfg 1.15.0-1
+bibata-cursor-theme 2.0.7-1.1
+brave-bin 1:1.85.116-1
+cachyos-ananicy-rules-git 20251114.r666.g933c077-1
+candy-icons-git r1346.1be42f2-1
+chaotic-keyring 20251028-1
+chaotic-mirrorlist 20251025-1
+claude-desktop-bin 1.0.1768-1
+code-insiders-bin 1.102.0_1750742647-1
+devtoys-bin 2.0.8.0-2
+downgrade 11.5.5-1
+dxvk-mingw-git 2.7.1.r227.gb128f9f44-1
+edu-arc-kde 25.10-01
+edu-chadwm-git 25.10-01
+edu-dot-files-git 25.10-01
+edu-hblock-git 3.5.1-2
+edu-rofi-git 25.10-01
+edu-rofi-themes-git 25.10-01
+edu-sddm-simplicity-git 25.10-02
+edu-shells-git 25.10-02
+edu-variety-config-git 25.10-02
+edu-xfce-git 25.10-02
+electron25-bin 25.9.8-3
+etcher-bin 2.1.4-1
+fastfetch-git 2.55.1.r2.gcd8ab8e5-1
+ferdium-bin 7.1.1-1
+figma-linux-bin 0.11.5-0
+flameshot-imgur 13.3.0-1
+fluent-icon-theme-git 2025.08.21.r6.g8a99a6d-1
+gconf 3.2.6+11+g07808097-15
+gksu 2.0.2-6
+google-chrome 143.0.7499.109-1
+google-cloud-cli 549.0.1-1
+grub-customizer 5.2.5-2
+gtk2 2.24.33-5
+gtkmm 1:2.24.5-5
+hardcode-fixer-git 2.0-1
+hw-probe 1.6.6-3
+i3lock-color 2.13.c.5-3.3
+imagewriter 1.10.1432200249.1d253d9.2.22-1
+insync 3.9.6.60027-2
+iso-flag-png 1.0.4-1
+jetbrains-toolbox 3.1.2.64642-1
+k6 1.4.0-1
+k6-debug 1.4.0-1
+la-capitaine-icon-theme 0.6.2-1.2
+lastpass 4.147.2-1
+layan-gtk-theme-git 2023052342g6390f8e-1
+lib32-alsa-lib 1.2.14-2
+lib32-alsa-plugins 1.2.12-1
+lib32-at-spi2-core 2.58.1-2
+lib32-attr 2.5.2-1
+lib32-audit 4.1.2-1
+lib32-brotli 1.1.0-1
+lib32-bzip2 1.0.8-4
+lib32-cairo 1.18.4-1
+lib32-colord 1.4.8-1
+lib32-curl 8.17.0-1
+lib32-dbus 1.16.2-1
+lib32-e2fsprogs 1.47.3-1
+lib32-expat 2.7.3-1
+lib32-fontconfig 2:2.17.1-1
+lib32-freetype2 2.14.1-1
+lib32-fribidi 1.0.16-2
+lib32-gdk-pixbuf2 2.44.4-1
+lib32-giflib 5.2.2-1
+lib32-glib2 2.86.1-1
+lib32-gmp 6.3.0-2
+lib32-gnutls 3.8.10-1
+lib32-gst-plugins-base-libs 1.26.8-1
+lib32-gstreamer 1.26.8-1
+lib32-gtk3 1:3.24.50-1
+lib32-harfbuzz 12.2.0-2
+lib32-icu 78.1-2
+lib32-json-c 0.18-2
+lib32-keyutils 1.6.3-2
+lib32-krb5 1.21.3-1
+lib32-lcms2 2.17-1
+lib32-libcap 2.77-1
+lib32-libcups 2.4.11-1
+lib32-libdatrie 0.2.13-3
+lib32-libdrm 2.4.128-1
+lib32-libelf 0.194-1
+lib32-libepoxy 1.5.10-2
+lib32-libffi 3.5.2-1
+lib32-libgcrypt 1.11.2-1
+lib32-libglvnd 1.7.0-1
+lib32-libgpg-error 1.56-1
+lib32-libgudev 238-3
+lib32-libidn2 2.3.7-1
+lib32-libjpeg-turbo 3.1.2-1
+lib32-libldap 2.6.10-1
+lib32-libnghttp2 1.68.0-1
+lib32-libnghttp3 1.12.0-1
+lib32-libnm 1.54.1-1
+lib32-libnsl 2.0.1-1
+lib32-libpciaccess 0.18.1-1
+lib32-libpipewire 1:1.4.9-1
+lib32-libpng 1.6.50-1
+lib32-libpsl 0.21.5-1
+lib32-librsvg 2:2.61.3-1
+lib32-libssh2 1.11.1-1
+lib32-libtasn1 4.20.0-1
+lib32-libthai 0.1.29-3
+lib32-libtiff 4.7.1-1
+lib32-libtirpc 1.3.7-1
+lib32-libunistring 1.3-1
+lib32-libunwind 1.8.1-1
+lib32-libva 2.22.0-1
+lib32-libx11 1.8.12-2
+lib32-libxau 1.0.11-2
+lib32-libxcb 1.17.0-1
+lib32-libxcomposite 0.4.6-2
+lib32-libxcrypt 4.5.2-1
+lib32-libxcrypt-compat 4.5.2-1
+lib32-libxcursor 1.2.3-1
+lib32-libxdamage 1.1.6-2
+lib32-libxdmcp 1.1.5-1
+lib32-libxext 1.3.6-1
+lib32-libxfixes 6.0.1-2
+lib32-libxft 2.3.8-2
+lib32-libxi 1.8.2-1
+lib32-libxinerama 1.1.5-2
+lib32-libxkbcommon 1.13.0-1
+lib32-libxml2 2.15.1-2
+lib32-libxrandr 1.5.4-1
+lib32-libxrender 0.9.11-2
+lib32-libxshmfence 1.3.3-1
+lib32-libxslt 1.1.43-2
+lib32-libxss 1.2.4-2
+lib32-libxtst 1.2.5-2
+lib32-libxv 1.0.12-2
+lib32-libxxf86vm 1.1.5-2
+lib32-llvm-libs 1:21.1.5-1
+lib32-lm_sensors 1:3.6.2-2
+lib32-mesa 1:25.2.7-1
+lib32-mpg123 1.33.3-1
+lib32-ncurses 6.5-2
+lib32-nettle 3.10.2-1
+lib32-nspr 4.38.2-1
+lib32-nss 3.117-1
+lib32-ocl-icd 2.3.3-1
+lib32-openal 1.24.3-1
+lib32-openssl 1:3.6.0-1
+lib32-orc 0.4.41-1
+lib32-p11-kit 0.25.10-2
+lib32-pam 1.7.1-1
+lib32-pango 1:1.57.0-2
+lib32-pcre2 10.47-1
+lib32-pipewire 1:1.4.9-1
+lib32-pixman 0.46.4-1
+lib32-spirv-tools 1:1.4.328.1-1
+lib32-sqlite 3.51.0-1
+lib32-systemd 258.2-1
+lib32-util-linux 2.41.2-1
+lib32-v4l-utils 1.30.1-2
+lib32-vulkan-icd-loader 1.4.328.1-1
+lib32-vulkan-intel 1:25.2.7-1
+lib32-wayland 1.24.0-1
+lib32-xcb-util-keysyms 0.4.1-2
+lib32-xz 5.8.1-1
+lib32-zlib 1.3.1-2
+lib32-zstd 1.5.7-2
+libgksu 2.0.12-9
+lohit-fonts 2.95.5.1-2
+lyrebird 1.2.0-1
+menulibre 1:2.4.0-1.2
+mintlocale 1.6.4-1
+mintstick 1.6.4-1
+mkinitcpio-firmware 1.6.0-1
+mkinitcpio-openswap 0.1.1-1
+neofetch-git 7.1.0.r166.gccd5d9f5-1.1
+nitrogen 1.6.1-6
+nomacs 1:3.21.1-1
+oh-my-zsh-git r7640.8a4d6fc0a-1
+openbox-themes-pambudi-git r32.8bdf5de-1
+openoffice-bin 4.1.16-1
+pace 1.4.2-1.4
+php-amqp 2.1.2-1
+picom-git 2805_12.147.gbe577470_2025.11.01-1
+postman-bin 11.75.6-1
+qt5-remoteobjects 5.15.18-1
+rate-mirrors 0.22.0-1
+reiserfsprogs 3.6.27-6
+reiserfsprogs-debug 3.6.27-6
+sddm-git 0.21.0.51.gdfa5315-1
+simplescreenrecorder-qt6-git 0.4.4.r73.g232eac7-1.1
+sparklines-git v1.0.1.33.gab88ac6-1
+steam 1.0.0.85-1
+sublime-text-4 4.4200-1
+sweet-theme-git 6.0.r11.g9d09ed5-1
+the_platinum_searcher-bin 2.2.0-2
+thunar-extended 4.18.11-1
+tinty-git r244.639472c-1
+tiny-rdm 1.2.5-1
+ttf-joypixels 9.0.0-1
+ttf-mac-fonts 20100901.134-1.1
+ttf-meslo-nerd-font-powerlevel10k 2.3.3-1.1
+ttf-ms-win10-auto 10.0.19042.789-6
+ttf-proggy-clean 1.1.7-1
+ttf-wps-fonts 2.0-1.1
+upd72020x-fw 1:1.0.0-3
+urxvt-fullscreen 1-1
+urxvt-resize-font-git 27.b593580-1
+v4l-utils-git 1.28.1.r52.g363495b6-2
+ventoy-bin 1.1.09-1
+ventoy-bin-debug 1.1.09-1
+vimix-icon-theme-git 2025.08.26.r6.g8c877b9-1
+visual-studio-code-bin 1.107.0-1
+wd719x-firmware 1-9
+woeusb 5.2.4-1.1
+wps-office-cn 12.1.2.22571-1
+wps-office-mime 11.1.0.11723-2
+wrk 4.2.0-3
+wttr 1.55.r0.g36893b1-1
+xf86-video-openchrome 0.6.0.r798.g0c75274-2
+yay-git 12.5.7.r0.g44dfda05-1
+yay-git-debug 12.5.7.r0.g44dfda05-1
+zoom 6.6.11-1
+```
+
+## Orphan Packages (Top 20)
+```
+appstream-glib 0.8.3-3
+archlinux-appstream-data 20251025-2
+k6-debug 1.4.0-1
+kauth 6.21.0-1
+kpty 6.21.0-1
+plasma-activities 6.5.4-1
+reiserfsprogs-debug 3.6.27-6
+rust 1:1.92.0-1
+ventoy-bin-debug 1.1.09-1
+yay-git-debug 12.5.7.r0.g44dfda05-1
+```
+
+# System Configuration
+
+## Pacman Configuration
+File: `/etc/pacman.conf`
+```
+#
+# /etc/pacman.conf
+#
+# See the pacman.conf(5) manpage for option and repository directives
+
+#
+# GENERAL OPTIONS
+#
+[options]
+# The following paths are commented out with their default values listed.
+# If you wish to use different paths, uncomment and update the paths.
+#RootDir     = /
+#DBPath      = /var/lib/pacman/
+#CacheDir    = /var/cache/pacman/pkg/
+#LogFile     = /var/log/pacman.log
+#GPGDir      = /etc/pacman.d/gnupg/
+#HookDir     = /etc/pacman.d/hooks/
+HoldPkg     = pacman glibc
+#XferCommand = /usr/bin/curl -L -C - -f -o %o %u
+#XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
+#CleanMethod = KeepInstalled
+Architecture = auto
+
+# Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
+#IgnorePkg   =
+#IgnoreGroup =
+
+#NoUpgrade   =
+#NoExtract   =
+
+# Misc options
+#UseSyslog
+#Color
+#NoProgressBar
+CheckSpace
+#VerbosePkgLists
+ParallelDownloads = 5
+DownloadUser = alpm
+#DisableSandboxFilesystem
+#DisableSandboxSyscalls
+
+# By default, pacman accepts packages signed by keys that its local keyring
+# trusts (see pacman-key and its man page), as well as unsigned packages.
+SigLevel    = Required DatabaseOptional
+LocalFileSigLevel = Optional
+#RemoteFileSigLevel = Required
+
+# NOTE: You must run `pacman-key --init` before first using pacman; the local
+# keyring can then be populated with the keys of all official Arch Linux
+# packagers with `pacman-key --populate archlinux`.
+
+#
+# REPOSITORIES
+#   - can be defined here or included from another file
+#   - pacman will search repositories in the order defined here
+#   - local/custom mirrors can be added here or in separate files
+#   - repositories listed first will take precedence when packages
+#     have identical names, regardless of version number
+#   - URLs will have $repo replaced by the name of the current repo
+#   - URLs will have $arch replaced by the name of the architecture
+#
+# Repository entries are of the format:
+#       [repo-name]
+#       Server = ServerName
+#       Include = IncludePath
+#
+# The header [repo-name] is crucial - it must be present and
+# uncommented to enable the repo.
+#
+
+# The testing repositories are disabled by default. To enable, uncomment the
+# repo name header and Include lines. You can add preferred servers immediately
+# after the header, and they will be used before the default mirrors.
+
+#[core-testing]
+#Include = /etc/pacman.d/mirrorlist
+
+[core]
+Include = /etc/pacman.d/mirrorlist
+
+#[extra-testing]
+#Include = /etc/pacman.d/mirrorlist
+
+[extra]
+Include = /etc/pacman.d/mirrorlist
+
+# If you want to run 32 bit applications on your x86_64 system,
+# enable the multilib repositories as required here.
+
+#[multilib-testing]
+#Include = /etc/pacman.d/mirrorlist
+
+#[multilib]
+#Include = /etc/pacman.d/mirrorlist
+
+# An example of a custom package repository.  See the pacman manpage for
+# tips on creating your own repositories.
+#[custom]
+#SigLevel = Optional TrustAll
+#Server = file:///home/<USER>
+```
+
+## Pacman Mirrors (Top 20)
+```
+Server = https://mirror.osbeck.com/archlinux/$repo/os/$arch
+Server = https://mirror.rackspace.com/archlinux/$repo/os/$arch
+Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch
+Server = http://mirror.osbeck.com/archlinux/$repo/os/$arch
+Server = http://mirror.rackspace.com/archlinux/$repo/os/$arch
+Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch
+```
+
+## Filesystem Mounts
+File: `/etc/fstab`
+```
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a device; this may
+# be used with UUID= as a more robust way to name devices that works even if
+# disks are added and removed. See fstab(5).
+#
+# <file system>             <mount point>  <type>  <options>  <dump>  <pass>
+UUID=A80A-33AD                            /boot/efi      vfat    defaults,noatime 0 2
+UUID=5c148df8-cbd4-4e4f-aba0-4bb6d63778c8 /              ext4    defaults,noatime 0 1
+tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0
+/swapfile none swap defaults 0 0
+```
+
+## Active Mounts with Options
+```
+SOURCE         FSTYPE  SIZE   USED  AVAIL USE% TARGET
+/dev/nvme0n1p5 ext4    727G 526,8G 163,1G  72% /
+/dev/nvme0n1p1 vfat     96M  64,4M  31,6M  67% /boot/efi
+```
+
+# Audio Configuration
+
+## PulseAudio/PipeWire Info
+```
+Server Name: PulseAudio (on PipeWire 1.4.9)
+Server Version: 15.0.0
+Default Sample Specification: float32le 2ch 48000Hz
+Default Sink: alsa_output.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo
+Default Source: alsa_input.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo
+```
+
+## Audio Sinks
+```
+91	alsa_output.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo	PipeWire	s24le 2ch 48000Hz	RUNNING
+93	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI3__sink	PipeWire	s32le 2ch 48000Hz	SUSPENDED
+94	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI2__sink	PipeWire	s32le 2ch 48000Hz	SUSPENDED
+95	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI1__sink	PipeWire	s32le 2ch 48000Hz	SUSPENDED
+96	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__Speaker__sink	PipeWire	s32le 2ch 48000Hz	SUSPENDED
+```
+
+## Audio Sources
+```
+56	alsa_input.usb-046d_Logitech_StreamCam_F8EB8E25-02.stereo-fallback	PipeWire	s16le 2ch 48000Hz	SUSPENDED
+91	alsa_output.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo.monitor	PipeWire	s24le 2ch 48000Hz	RUNNING
+92	alsa_input.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo	PipeWire	s24le 2ch 48000Hz	RUNNING
+93	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI3__sink.monitor	PipeWire	s32le 2ch 48000Hz	SUSPENDED
+94	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI2__sink.monitor	PipeWire	s32le 2ch 48000Hz	SUSPENDED
+95	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI1__sink.monitor	PipeWire	s32le 2ch 48000Hz	SUSPENDED
+96	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__Speaker__sink.monitor	PipeWire	s32le 2ch 48000Hz	SUSPENDED
+97	alsa_input.pci-0000_00_1f.3-platform-sof_sdw.HiFi__Mic__source	PipeWire	s32le 2ch 48000Hz	SUSPENDED
+```
+
+## WirePlumber Status
+```
+PipeWire 'pipewire-0' [1.4.9, patrickjaja@jajapc, cookie:3408667186]
+ └─ Clients:
+        32. WirePlumber                         [1.4.9, patrickjaja@jajapc, pid:2037]
+        33. pipewire                            [1.4.9, patrickjaja@jajapc, pid:2038]
+        46. WirePlumber [export]                [1.4.9, patrickjaja@jajapc, pid:2037]
+       185. xdg-desktop-portal                  [1.4.9, patrickjaja@jajapc, pid:3179]
+       186. PipeWire ALSA [volumeicon]          [1.4.9, patrickjaja@jajapc, pid:3639]
+       187. wpctl                               [1.4.9, patrickjaja@jajapc, pid:12747]
+       193. Google Chrome                       [1.4.9, patrickjaja@jajapc, pid:6081]
+       236. Google Chrome input                 [1.4.9, patrickjaja@jajapc, pid:6081]
+
+Audio
+ ├─ Devices:
+ │      47. StreamCam                           [alsa]
+ │      48. ATR2100x-USB Microphone             [alsa]
+ │      49. Alder Lake PCH-P High Definition Audio Controller [alsa]
+ │  
+ ├─ Sinks:
+ │      34. Alder Lake PCH-P High Definition Audio Controller HDMI / DisplayPort 3 Output [vol: 1.00]
+ │      43. Alder Lake PCH-P High Definition Audio Controller HDMI / DisplayPort 1 Output [vol: 1.00]
+ │      44. Alder Lake PCH-P High Definition Audio Controller Speaker [vol: 1.00]
+ │      45. Alder Lake PCH-P High Definition Audio Controller HDMI / DisplayPort 2 Output [vol: 1.00]
+ │  *   91. ATR2100x-USB Microphone Analog Stereo [vol: 0.40]
+ │  
+ ├─ Sources:
+ │      42. Alder Lake PCH-P High Definition Audio Controller SoundWire microphones [vol: 1.00]
+ │      56. StreamCam Stereo                    [vol: 0.44]
+ │  *   92. ATR2100x-USB Microphone Analog Stereo [vol: 1.00]
+ │  
+ ├─ Filters:
+ │  
+ └─ Streams:
+       191. Google Chrome                                               
+            190. output_FR       > ATR2100x-USB Microphone:playback_FR	[active]
+            192. output_FL       > ATR2100x-USB Microphone:playback_FL	[active]
+       238. Google Chrome input                                         
+            198. input_FL        < ATR2100x-USB Microphone:capture_FL	[active]
+            200. monitor_FR     
+            201. input_FR        < ATR2100x-USB Microphone:capture_FR	[active]
+            202. monitor_FL     
+
+Video
+ ├─ Devices:
+ │      57. ipu6                                [v4l2]
+ │      58. ipu6                                [v4l2]
+ │      59. ipu6                                [v4l2]
+ │      60. ipu6                                [v4l2]
+ │      61. ipu6                                [v4l2]
+ │      62. ipu6                                [v4l2]
+ │      63. ipu6                                [v4l2]
+ │      64. ipu6                                [v4l2]
+ │      65. ipu6                                [v4l2]
+ │      66. ipu6                                [v4l2]
+ │      67. ipu6                                [v4l2]
+ │      68. ipu6                                [v4l2]
+ │      69. ipu6                                [v4l2]
+ │      70. ipu6                                [v4l2]
+ │      71. ipu6                                [v4l2]
+ │      72. ipu6                                [v4l2]
+ │      73. ipu6                                [v4l2]
+ │      74. ipu6                                [v4l2]
+ │      75. ipu6                                [v4l2]
+ │      76. ipu6                                [v4l2]
+ │      77. ipu6                                [v4l2]
+ │      78. ipu6                                [v4l2]
+ │      79. ipu6                                [v4l2]
+ │      80. ipu6                                [v4l2]
+ │      81. ipu6                                [v4l2]
+ │      82. ipu6                                [v4l2]
+ │      83. ipu6                                [v4l2]
+ │      84. ipu6                                [v4l2]
+ │      85. ipu6                                [v4l2]
+ │      86. ipu6                                [v4l2]
+ │      87. ipu6                                [v4l2]
+ │      88. ipu6                                [v4l2]
+ │      89. Logitech StreamCam                  [v4l2]
+ │      90. Logitech StreamCam                  [v4l2]
+ │  
+ ├─ Sinks:
+ │  
+ ├─ Sources:
+ │  *  119. Logitech StreamCam (V4L2)          
+ │     121. ipu6 (V4L2)                        
+ │     123. ipu6 (V4L2)                        
+ │     125. ipu6 (V4L2)                        
+ │     127. ipu6 (V4L2)                        
+ │     129. ipu6 (V4L2)                        
+ │     131. ipu6 (V4L2)                        
+ │     133. ipu6 (V4L2)                        
+ │     135. ipu6 (V4L2)                        
+ │     137. ipu6 (V4L2)                        
+ │     139. ipu6 (V4L2)                        
+ │     141. ipu6 (V4L2)                        
+ │     143. ipu6 (V4L2)                        
+ │     145. ipu6 (V4L2)                        
+ │     147. ipu6 (V4L2)                        
+ │     149. ipu6 (V4L2)                        
+ │     151. ipu6 (V4L2)                        
+ │     153. ipu6 (V4L2)                        
+ │     155. ipu6 (V4L2)                        
+ │     157. ipu6 (V4L2)                        
+ │     159. ipu6 (V4L2)                        
+ │     161. ipu6 (V4L2)                        
+ │     163. ipu6 (V4L2)                        
+ │     165. ipu6 (V4L2)                        
+ │     167. ipu6 (V4L2)                        
+ │     169. ipu6 (V4L2)                        
+ │     171. ipu6 (V4L2)                        
+ │     173. ipu6 (V4L2)                        
+ │     175. ipu6 (V4L2)                        
+ │     177. ipu6 (V4L2)                        
+ │     179. ipu6 (V4L2)                        
+ │     181. ipu6 (V4L2)                        
+ │     183. ipu6 (V4L2)                        
+ │  
+ ├─ Filters:
+ │  
+ └─ Streams:
+
+Settings
+ └─ Default Configured Devices:
+         0. Audio/Sink    alsa_output.pci-0000_00_1f.3-platform-sof_sdw.pro-output-2
+         1. Audio/Source  alsa_input.usb-C-Media_Electronics_Inc._Stream_800_HD_Studio-00.pro-input-0
+```
+
+## Sound Cards
+```
+ 0 [sofsoundwire   ]: sof-soundwire - sof-soundwire
+                      DellInc.-XPS9320--0CW9KM
+ 1 [StreamCam      ]: USB-Audio - Logitech StreamCam
+                      Logitech StreamCam at usb-0000:00:0d.0-1.2, super speed
+ 2 [Microphone     ]: USB-Audio - ATR2100x-USB Microphone
+                      Audio Technica Corp ATR2100x-USB Microphone at usb-0000:00:14.0-1.1, high speed
+```
+
+# Display Server & Desktop Configuration
+
+**Display Server**: X11 (:0.0)
+## Display Configuration
+```
+eDP-1 connected 1920x1200+7040+0 (normal left inverted right x axis y axis) 288mm x 180mm
+   1920x1200     59.95*+
+DP-1 disconnected (normal left inverted right x axis y axis)
+DP-2 disconnected (normal left inverted right x axis y axis)
+DP-3 disconnected (normal left inverted right x axis y axis)
+DP-4 disconnected (normal left inverted right x axis y axis)
+DP-3-1 connected 1920x1080+5120+120 (normal left inverted right x axis y axis) 598mm x 336mm
+   1920x1080     60.00*+ 143.98   119.98    99.93    84.90    59.94  
+DP-3-2 connected 5120x1440+0+120 (normal left inverted right x axis y axis) 1190mm x 340mm
+   5120x1440    100.00    59.98* 
+```
+
+## Display Power Management
+```
+DPMS (Display Power Management Signaling):
+  Standby: 600    Suspend: 600    Off: 600
+  DPMS is Disabled
+```
+
+## XFCE Version
+```
+xfce4-session 4.20.3 (Xfce 4.20)
+```
+
+## XFCE Panel Configuration
+### Panel Properties
+```
+/panels                            [0]
+/panels/dark-mode                  true
+/panels/panel-0/autohide-behavior  0
+/panels/panel-0/background-alpha   80
+/panels/panel-0/background-rgba    [0,184000,0,204000,0,247000,1,000000]
+/panels/panel-0/background-style   1
+/panels/panel-0/dark-mode          true
+/panels/panel-0/enable-struts      true
+/panels/panel-0/enter-opacity      100
+/panels/panel-0/icon-size          0
+/panels/panel-0/leave-opacity      100
+/panels/panel-0/length             100,000000
+/panels/panel-0/length-adjust      true
+/panels/panel-0/mode               0
+/panels/panel-0/nrows              1
+/panels/panel-0/plugin-ids         [1,3,4,6,7,8,9,10,11,12,14,13]
+/panels/panel-0/position           p=6;x=0;y=0
+/panels/panel-0/position-locked    true
+/panels/panel-0/size               21
+/panels/panel-0/span-monitors      false
+```
+
+### Panel Plugins
+```
+/plugins/plugin-1                      whiskermenu
+/plugins/plugin-1/button-icon          archlinux
+/plugins/plugin-1/button-title         Applications
+/plugins/plugin-1/command-lockscreen   betterlockscreen -l
+/plugins/plugin-1/command-logout       archlinux-logout
+/plugins/plugin-1/command-switchuser   dm-tool switch-to-greeter
+/plugins/plugin-1/custom-menu          false
+/plugins/plugin-1/favorites            [xfce4-web-browser.desktop,xfce4-mail-reader.desktop,xfce4-file-manager.desktop,xfce4-terminal-emulator.desktop]
+/plugins/plugin-1/favorites-in-recent  true
+/plugins/plugin-1/menu-opacity         100
+/plugins/plugin-1/recent               [xfce-keyboard-settings.desktop,xfce4-appfinder.desktop,pavucontrol.desktop,xfce4-taskmanager.desktop,galculator.desktop,be.maartenbaert.simplescreenrecorder.desktop,mintstick-format.desktop,com.uploadedlobster.peek.desktop,xfce-display-settings.desktop,wps-office-wpp.desktop]
+/plugins/plugin-1/show-button-title    false
+/plugins/plugin-1/show-generic-names   false
+/plugins/plugin-1/show-menu-icons      true
+/plugins/plugin-1/show-tooltips        false
+/plugins/plugin-1/view-mode            1
+/plugins/plugin-3                      separator
+/plugins/plugin-3/expand               true
+/plugins/plugin-3/style                0
+/plugins/plugin-4                      systray
+/plugins/plugin-4/hidden-items         [toolbox]
+/plugins/plugin-4/hidden-legacy-items  [pamac-tray]
+/plugins/plugin-4/icon-size            16
+/plugins/plugin-4/known-items          [easyeffects,jetbrains-toolbox,droidcam,obs,steam,Microsoft Teams - Preview1,vlc,SimpleScreenRecorder,zoom,Insync,tao application,chrome_status_icon_3,toolbox,chrome_status_icon_2,chrome_status_icon_1,flameshot,variety]
+/plugins/plugin-4/known-legacy-items   [wi-fi network connection “jajaspeed” active: jajaspeed (46%),wi-fi network connection “jajaspeed” active: jajaspeed (89%),wi-fi network connection “jajaspeed” active: jajaspeed (70%),volumeicon,wi-fi network connection “jajaspeed” active: jajaspeed (67%),wi-fi network connection “jajaspeed” active: jajaspeed (61%),xfce4-power-manager,wi-fi network connection “jajaspeed” active: jajaspeed (65%),electron,wi-fi network connection “jajaspeed” active: jajaspeed (66%),wi-fi network connection “jajaspeed” active: jajaspeed (69%),wi-fi network connection “jajaspeed” active: jajaspeed (68%),wi-fi network connection “jajaspeed” active: jajaspeed (62%),wi-fi network connection “jajaspeed 5 ghz” active: jajaspeed (59%),wi-fi network connection “jajaspeed” active: jajaspeed (57%),wi-fi network connection “jajaspeed” active: jajaspeed (59%),wi-fi network connection “davidwesseler” active: davidwesseler (70%),wi-fi network connection “jajaspeed 2” active: jajaspeed (68%),wi-fi network connection “jajaspeed 2” active: jajaspeed (63%),wi-fi network connection “jajaspeed 2” active: jajaspeed (65%),wi-fi network connection “jajaspeed 3” active: jajaspeed (61%),notes,wi-fi network connection “jajaspeed” active: jajaspeed (54%),ethernet network connection “wired connection 1” active,wi-fi network connection “jajaspeed” active: jajaspeed (58%),obs,flameshot,system-config-printer,pragha music player,wi-fi network connection “jajaspeed” active: jajaspeed (73%),wi-fi network connection “jajaspeed” active: jajaspeed (74%),networkmanager applet,variety,clipman,wi-fi network connection “jajaspeed” active: jajaspeed (76%),blueberry-tray.py,pamac-tray]
+/plugins/plugin-4/show-frame           false
+/plugins/plugin-4/size-max             16
+/plugins/plugin-4/symbolic-icons       true
+/plugins/plugin-6                      power-manager-plugin
+/plugins/plugin-7                      separator
+/plugins/plugin-7/style                0
+/plugins/plugin-8                      clock
+/plugins/plugin-8/digital-format       %a %I:%M %p
+/plugins/plugin-8/digital-layout       3
+/plugins/plugin-8/digital-time-format  %H:%M
+/plugins/plugin-8/mode                 2
+/plugins/plugin-8/show-frame           true
+/plugins/plugin-8/size-max             22
+/plugins/plugin-8/style                0
+/plugins/plugin-8/tooltip-format       %A %d %B %Y
+/plugins/plugin-9                      separator
+/plugins/plugin-9/expand               false
+/plugins/plugin-9/style                0
+/plugins/plugin-10                     actions
+/plugins/plugin-10/appearance          1
+/plugins/plugin-10/ask-confirmation    true
+/plugins/plugin-10/button-title        1
+/plugins/plugin-10/invert-orientation  false
+/plugins/plugin-10/items               [+lock-screen,+separator,+suspend,+hibernate,+separator,-hybrid-sleep,+restart,+shutdown,+separator,+switch-user,-logout-dialog,+logout]
+/plugins/plugin-11                     separator
+```
+
+### Active Panel Plugin Types
+```
+```
+
+### Panel Layout
+```
+/panels/dark-mode                      true
+/panels/panel-0/dark-mode              true
+/panels/panel-0/icon-size              0
+/panels/panel-0/length                 100,000000
+/panels/panel-0/length-adjust          true
+/panels/panel-0/mode                   0
+/panels/panel-0/position               p=6;x=0;y=0
+/panels/panel-0/position-locked        true
+/panels/panel-0/size                   21
+/plugins/plugin-1/view-mode            1
+/plugins/plugin-4/icon-size            16
+/plugins/plugin-4/size-max             16
+/plugins/plugin-8/mode                 2
+/plugins/plugin-8/size-max             22
+```
+
+# Themes, Fonts & Appearance Configuration
+
+## GTK Themes
+### GTK3 Settings
+```ini
+gtk-theme-name=Arc-Dark
+gtk-icon-theme-name=Sardi-Arc
+gtk-font-name=Noto Sans 11
+gtk-cursor-theme-name=Bibata-Modern-Ice
+gtk-cursor-theme-size=0
+```
+
+### GTK4 Settings
+```ini
+gtk-theme-name=Arc-Dark
+gtk-icon-theme-name=Sardi-Arc
+gtk-font-name=Noto Sans 11
+gtk-cursor-theme-name=Bibata-Modern-Ice
+```
+
+### GTK2 Settings
+```
+gtk-theme-name="Arc-Dark"
+```
+
+### XFCE Theme Settings
+```
+GTK Theme: Arc-Dark
+Icon Theme: breeze-dark
+Cursor Theme: Sweet-cursors
+Font: Noto Sans 11
+Window Manager Theme: Arc-Dark
+```
+
+## Qt5 Theme Configuration
+```ini
+color_scheme_path=/usr/share/qt5ct/colors/airy.conf
+icon_theme=Sardi-Arc
+style=kvantum-dark
+toolbutton_style=4
+```
+
+## Kvantum Theme
+```ini
+theme=ArcDark
+```
+
+## Font Configuration
+### Configured System Fonts
+```
+Default Sans: DroidSans.ttf: "Droid Sans" "Regular"
+Default Serif: DroidSerif-Regular.ttf: "Droid Serif" "Regular"
+Default Mono: DroidSansMono.ttf: "Droid Sans Mono" "Regular"
+```
+
+## Fontconfig User Settings
+File: `/home/patrickjaja/.config/fontconfig/fonts.conf`
+```
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+    <match target="font">
+        <edit mode="assign" name="hinting" >
+            <bool>true</bool>
+        </edit>
+        <edit mode="assign" name="autohint" >
+            <bool>true</bool>
+        </edit>
+        <edit mode="assign" name="hintstyle" >
+            <const>hintslight</const>
+        </edit>
+        <edit mode="assign" name="rgba" >
+            <const>rgb</const>
+        </edit>
+        <edit mode="assign" name="antialias" >
+            <bool>true</bool>
+        </edit>
+        <edit mode="assign" name="lcdfilter">
+            <const>lcddefault</const>
+        </edit>
+    </match>
+
+<!-- Set preferred serif, sans serif, and monospace fonts. -->
+    <alias>
+        <family>serif</family>
+        <prefer>
+            <family>Droid Serif</family>
+        </prefer>
+    </alias>
+    <alias>
+        <family>sans-serif</family>
+        <prefer>
+            <family>Droid Sans</family>
+        </prefer>
+    </alias>
+    <alias>
+        <family>sans</family>
+        <prefer>
+            <family>Droid Sans</family>
+        </prefer>
+    </alias>
+    <alias>
+        <family>monospace</family>
+        <prefer>
+            <family>Droid Sans Mono</family>
+        </prefer>
+    </alias>
+    <alias>
+... (57 lines total, showing first 50)
+```
+
+### Alacritty Font
+```
+#font:
+  # Normal (roman) font face
+  #normal:
+    # Font family
+```
+
+### Kitty Font
+```
+font_family      NotoMono
+font_size 13.0
+```
+
+### Font Rendering
+Hinting: Slight
+
+## Installed Theme Packages
+```
+adobe-source-sans-fonts 3.052-2
+adwaita-cursors 49.0-1
+adwaita-fonts 49.0-2
+adwaita-icon-theme 49.0-1
+adwaita-icon-theme-legacy 46.2-3
+alacritty-themes 6.0.2-1
+arc-gtk-theme 20221218-2
+awesome-terminal-fonts 1.1.0-5
+bibata-cursor-theme 2.0.7-1.1
+breeze-icons 6.21.0-1
+candy-icons-git r1346.1be42f2-1
+cantarell-fonts 1:0.303.1-2
+default-cursors 3-1
+edu-rofi-themes-git 25.10-01
+elementary-icon-theme 8.2.0-1
+fluent-icon-theme-git 2025.08.21.r6.g8a99a6d-1
+fontconfig 2:2.17.1-1
+font-manager 0.9.4-2
+gnome-themes-extra 1:3.28-1
+gsfonts 20200910-6
+gtk-update-icon-cache 1:4.20.3-1
+hicolor-icon-theme 0.18-1
+kiconthemes 6.21.0-1
+la-capitaine-icon-theme 0.6.2-1.2
+layan-gtk-theme-git 2023052342g6390f8e-1
+lohit-fonts 2.95.5.1-2
+noto-fonts 1:2025.12.01-1
+openbox-themes-pambudi-git r32.8bdf5de-1
+powerline-fonts 2.8.4-3
+sound-theme-freedesktop 0.8-6
+sweet-theme-git 6.0.r11.g9d09ed5-1
+terminus-font 4.49.1-8
+ttf-mac-fonts 20100901.134-1.1
+ttf-meslo-nerd-font-powerlevel10k 2.3.3-1.1
+ttf-nerd-fonts-symbols 3.4.0-1
+ttf-nerd-fonts-symbols-common 3.4.0-1
+ttf-nerd-fonts-symbols-mono 3.4.0-1
+ttf-ubuntu-font-family 1:0.83-2
+ttf-wps-fonts 2.0-1.1
+urxvt-resize-font-git 27.b593580-1
+vimix-icon-theme-git 2025.08.26.r6.g8c877b9-1
+volumeicon 0.5.1-7
+woff2-font-awesome 7.1.0-1
+xapp-symbolic-icons 1.0.6-1
+xcb-util-cursor 0.1.6-1
+xfwm4-themes 4.10.0-6
+xorg-fonts-encodings 1.1.0-1
+xorg-mkfontscale 1.2.3-1
+xorg-xcursorgen 1.0.9-1
+```
+
+## Available Icon Themes
+```
+Adwaita
+AdwaitaLegacy
+Bibata-Modern-Amber
+Bibata-Modern-Amber-Right
+Bibata-Modern-Classic
+Bibata-Modern-Classic-Right
+Bibata-Modern-Ice
+Bibata-Modern-Ice-Right
+Bibata-Original-Amber
+Bibata-Original-Amber-Right
+Bibata-Original-Classic
+Bibata-Original-Classic-Right
+Bibata-Original-Ice
+Bibata-Original-Ice-Right
+breeze
+breeze-dark
+candy-icons
+elementary
+Fluent
+Fluent-dark
+
+User Icon Themes:
+hicolor
+```
+
+## Available Cursor Themes
+```
+Bibata-Modern-Amber
+Bibata-Modern-Amber-Right
+Bibata-Modern-Classic
+Bibata-Modern-Classic-Right
+Bibata-Modern-Ice
+Bibata-Modern-Ice-Right
+Bibata-Original-Amber
+Bibata-Original-Amber-Right
+Bibata-Original-Classic
+Bibata-Original-Classic-Right
+Bibata-Original-Ice
+Bibata-Original-Ice-Right
+elementary
+```
+
+# Network Configuration
+
+## Network Interfaces
+```
+lo               UNKNOWN        <IP_REDACTED>/8 ::1/128 
+wlp0s20f3        UP             <IP_REDACTED>/24 
+enp0s20f0u3u4    DOWN           
+br-081441c9ccf3  DOWN           <IP_REDACTED>/16 
+br-15b41ec5bd01  DOWN           <IP_REDACTED>/16 
+br-3ec4654a106e  DOWN           <IP_REDACTED>/16 
+docker0          DOWN           <IP_REDACTED>/16 
+br-ccd6afa4e3df  UP             <IP_REDACTED>/16 fe80::81a:3fff:fe9e:8dd4/64 
+br-e58d8e31d81e  DOWN           <IP_REDACTED>/16 
+veth917db3c@if2  UP             fe80::1c0e:48ff:fe3d:8ea2/64 
+vethc53fb98@if2  UP             fe80::80e5:90ff:fe2b:5125/64 
+vetha3f0c80@if2  UP             fe80::38f1:88ff:fe3e:de17/64 
+veth6cc803a@if2  UP             fe80::188d:17ff:feee:4e66/64 
+```
+
+## Default Routes
+```
+default via <IP_REDACTED> dev wlp0s20f3 proto dhcp src <IP_REDACTED> metric 600 
+```
+
+## Network Services Status
+```
+active
+inactive
+inactive
+```
+
+## DNS Configuration
+```
+Failed to get global data: Could not activate remote peer 'org.freedesktop.resolve1': activation request failed: unknown unit
+Error executing: resolvectl status | head -20
+```
+
+## UFW Firewall Status
+```
+ufw status requires sudo
+```
+
+# Container & Virtualization
+
+## Docker Version
+```
+Docker version 29.1.3, build f52814d454
+```
+
+## Docker Containers
+```
+NAMES                                              IMAGE                                             STATUS
+workoflow-promopage-v2-frankenphp-1                workoflow-promopage-v2-frankenphp                 Up 2 minutes (healthy)
+psychotherapie_phpmyadmin                          phpmyadmin:latest                                 Exited (0) 3 weeks ago
+psychotherapie_php                                 psychotherapieneuss-php                           Exited (0) 3 weeks ago
+psychotherapie_mysql                               mysql:8.0                                         Exited (0) 3 weeks ago
+workoflow-ai-setup-n8n-worker-runner-1             n8nio/runners:latest                              Exited (143) 3 weeks ago
+workoflow-ai-setup-n8n-worker-1                    n8nio/n8n:latest                                  Exited (0) 3 weeks ago
+workoflow-ai-setup-n8n-runner-1                    n8nio/runners:latest                              Exited (143) 3 weeks ago
+workoflow-ai-setup-n8n-1                           n8nio/n8n:latest                                  Exited (0) 3 weeks ago
+litellm                                            ghcr.io/berriai/litellm:main-latest               Exited (0) 3 weeks ago
+workoflow-ai-setup-minio-1                         minio/minio:RELEASE.2025-04-22T22-12-26Z          Exited (0) 3 weeks ago
+workoflow-ai-setup-postgres-1                      postgres:17.5-alpine                              Exited (0) 3 weeks ago
+workoflow-ai-setup-workoflow-teams-bot-1           patricks1987/workoflow-teams-bot:main             Exited (0) 3 weeks ago
+searxng                                            searxng/searxng:latest                            Exited (0) 3 weeks ago
+qdrant                                             qdrant/qdrant:latest                              Exited (143) 3 weeks ago
+gotenberg                                          gotenberg/gotenberg:8                             Exited (0) 3 weeks ago
+tika                                               apache/tika:latest                                Exited (143) 3 weeks ago
+bifrost                                            maximhq/bifrost:latest                            Exited (0) 3 weeks ago
+phoenix                                            arizephoenix/phoenix:latest                       Exited (0) 3 weeks ago
+workoflow-tests-promptfoo-shell-run-86ac826d58b5   workoflow-tests-promptfoo-shell                   Exited (0) 4 weeks ago
+Error executing: docker ps -a --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}' | head -20
+```
+
+## Docker Images
+```
+REPOSITORY                          TAG                            SIZE
+psychotherapieneuss-php             latest                         599MB
+phpmyadmin                          latest                         575MB
+ghcr.io/berriai/litellm             main-latest                    1.34GB
+n8nio/runners                       1.123.4                        355MB
+mysql                               8.0                            781MB
+maximhq/bifrost                     latest                         39.2MB
+n8nio/runners                       latest                         349MB
+workoflow-tests-promptfoo-shell     latest                         2.93GB
+workoflow-promopage-v2-frankenphp   latest                         1.49GB
+redis                               7-alpine                       41.4MB
+searxng/searxng                     latest                         199MB
+patricks1987/workoflow-teams-bot    main                           1.22GB
+n8nio/n8n                           latest                         968MB
+arizephoenix/phoenix                latest                         984MB
+gotenberg/gotenberg                 8                              1.83GB
+postgres                            16-alpine                      281MB
+influxdb                            2.7-alpine                     188MB
+timescale/timescaledb               latest-pg16                    1.07GB
+qdrant/qdrant                       latest                         178MB
+Error executing: docker images --format 'table {{.Repository}}\t{{.Tag}}\t{{.Size}}' | head -20
+```
+
+## Systemd Containers
+```
+No machines.
+```
+
+## VirtualBox VMs
+```
+```
+
+# Systemd Services
+
+## Enabled Services (Top 30)
+```
+UNIT FILE                          STATE   PRESET
+ananicy-cpp.service                enabled disabled
+avahi-daemon.service               enabled disabled
+bluetooth.service                  enabled disabled
+cups.service                       enabled disabled
+docker.service                     enabled disabled
+NetworkManager-dispatcher.service  enabled disabled
+NetworkManager-wait-online.service enabled disabled
+NetworkManager.service             enabled disabled
+ntpd.service                       enabled disabled
+sddm.service                       enabled disabled
+systemd-timesyncd.service          enabled enabled
+
+12 unit files listed.
+```
+
+## Enabled User Services
+```
+UNIT FILE              STATE   PRESET
+pipewire-pulse.service enabled enabled
+pipewire.service       enabled enabled
+wireplumber.service    enabled enabled
+xdg-user-dirs.service  enabled enabled
+
+4 unit files listed.
+```
+
+## Systemd Timers
+```
+NEXT                          LEFT LAST                              PASSED UNIT                             ACTIVATES
+Mon 2026-01-05 09:18:45 CET   7min Fri 2025-12-19 10:01:34 CET            - plocate-updatedb.timer           plocate-updatedb.service
+Mon 2026-01-05 09:21:26 CET   9min Fri 2025-12-19 10:07:40 CET            - logrotate.timer                  logrotate.service
+Mon 2026-01-05 09:23:12 CET  11min -                                      - systemd-tmpfiles-clean.timer     systemd-tmpfiles-clean.service
+Mon 2026-01-05 09:52:01 CET  40min Mon 2025-12-15 08:12:21 CET            - fstrim.timer                     fstrim.service
+Mon 2026-01-05 16:16:17 CET     7h Thu 2025-12-18 12:59:19 CET            - man-db.timer                     man-db.service
+Tue 2026-01-06 00:00:00 CET    14h Mon 2026-01-05 09:08:37 CET 3min 13s ago shadow.timer                     shadow.service
+Thu 2026-01-08 09:55:34 CET 3 days Mon 2025-12-15 10:49:11 CET            - archlinux-keyring-wkd-sync.timer archlinux-keyring-wkd-sync.service
+-                                - -                                      - pamac-mirrorlist.timer           -
+
+8 timers listed.
+```
+
+## Slowest Starting Services
+```
+14.775s NetworkManager-wait-online.service
+ 5.696s docker.service
+ 4.054s systemd-rfkill.service
+ 2.930s dev-tpm0.device
+ 2.930s sys-devices-platform-STM0125:00-tpm-tpm0.device
+ 2.860s dev-ttyS2.device
+ 2.860s sys-devices-platform-serial8250-serial8250:0-serial8250:0.2-tty-ttyS2.device
+ 2.860s sys-devices-platform-serial8250-serial8250:0-serial8250:0.0-tty-ttyS0.device
+ 2.860s dev-ttyS0.device
+ 2.859s dev-ttyS1.device
+ 2.859s sys-devices-platform-serial8250-serial8250:0-serial8250:0.1-tty-ttyS1.device
+ 2.855s sys-devices-platform-serial8250-serial8250:0-serial8250:0.3-tty-ttyS3.device
+ 2.855s dev-ttyS3.device
+ 2.855s sys-devices-platform-STM0125:00-tpmrm-tpmrm0.device
+ 2.855s dev-tpmrm0.device
+ 2.851s sys-module-configfs.device
+ 2.850s sys-module-fuse.device
+ 2.823s dev-disk-by\x2dpath-pci\x2d0000:01:00.0\x2dnvme\x2d1\x2dpart-by\x2dpartlabel-Basic\x5cx20data\x5cx20partition.device
+ 2.817s dev-disk-by\x2duuid-3EB00E41B00DFFDF.device
+ 2.817s dev-disk-by\x2dpath-pci\x2d0000:01:00.0\x2dnvme\x2d1\x2dpart-by\x2dpartnum-6.device
+```
+
+## Boot Critical Chain
+```
+The time when unit became active or started is printed after the "@" character.
+The time the unit took to start is printed after the "+" character.
+
+graphical.target @23.640s
+└─multi-user.target @23.640s
+  └─docker.service @17.943s +5.696s
+    └─network-online.target @17.942s
+      └─NetworkManager-wait-online.service @3.166s +14.775s
+        └─NetworkManager.service @2.761s +403ms
+          └─basic.target @2.757s
+            └─dbus-broker.service @2.717s +21ms
+              └─dbus.socket @2.698s +15us
+                └─sysinit.target @2.687s
+                  └─systemd-update-utmp.service @2.668s +17ms
+                    └─systemd-tmpfiles-setup.service @2.614s +52ms
+                      └─local-fs.target @2.606s
+                        └─run-user-1000-doc.mount @21.729s
+                          └─run-user-1000.mount @16.050s
+                            └─local-fs-pre.target @372ms
+                              └─lvm2-monitor.service @299ms +71ms
+                                └─dm-event.socket @288ms +12us
+                                  └─system.slice
+                                    └─-.slice
+```
+
+# Development Environment
+
+## Installed Programming Languages & Tools
+- **gcc**: gcc (GCC) 15.2.1 20251112
+- **g++**: g++ (GCC) 15.2.1 20251112
+- **clang**: clang version 21.1.6
+- **python**: Python 3.13.11
+- **python3**: Python 3.13.11
+- **node**: v25.2.1
+- **npm**: 11.6.4
+- **cargo**: cargo 1.92.0 (344c4567c 2025-10-21) (Arch Linux rust 1:1.92.0-1)
+- **rustc**: rustc 1.92.0 (ded5c06cf 2025-12-08) (Arch Linux rust 1:1.92.0-1)

@@ -1,5 +1,53 @@
 # PC System CHANGELOG
 
+## 2026-03-16 — Fix WPS Office Spreadsheets/Presentation/PDF not launching
+
+**Problem:** WPS Spreadsheets (`et`), Presentation (`wpp`), and PDF (`wpspdf`) fail to open when launched from the XFCE menu or terminal. WPS Writer (`wps`) works fine.
+
+**Root Cause:** The `wps-office-cn` package (12.1.2.24722) installs binaries to `/usr/lib/office6/` instead of the upstream default `/opt/kingsoft/wps-office/office6/`. The `et` and `wpp` binaries attempt to re-exec themselves in "Prometheus/Fusion" mode but compute a broken path — `execve("/et", ["/et", "/prometheus"])` instead of `execve("/usr/lib/office6/et", ...)` — because the hardcoded path logic in the binary doesn't match the Arch install layout. The parent process exits cleanly (code 0), silently failing to launch any window.
+
+**Evidence:** `strace -f /usr/lib/office6/et` showed `execve("/et", ["/et", "/prometheus"]) = -1 ENOENT`. The `wps` binary works because it runs directly without the prometheus re-exec codepath.
+
+**Changes:**
+1. Added `wpsoffice\Application%20Settings\AppComponentMode=prome_independ` under the `[6.0]` section in `~/.config/Kingsoft/Office.conf`
+   - This forces WPS to use "Multi-component/Independent" mode instead of Fusion/Prometheus mode
+   - Each app (Writer, Spreadsheets, Presentation) launches as a separate window/process
+
+**To revert:**
+1. Remove the `wpsoffice\Application%20Settings\AppComponentMode=prome_independ` line from `~/.config/Kingsoft/Office.conf` under `[6.0]`
+
+---
+
+## 2026-02-25 — Fix npm prefix conflict with nvm / AUR builds
+
+**Problem:** AUR packages using nvm (e.g. tiny-rdm) fail to build because nvm detects `prefix` in `~/.npmrc` and aborts.
+
+**Root Cause:** `~/.npmrc` contained `prefix=~/.npm-global`, which is incompatible with nvm. nvm can unset the `NPM_CONFIG_PREFIX` env var in its subshell, but cannot modify `~/.npmrc`.
+
+**Changes:**
+1. Deleted `~/.npmrc` (contained `prefix=~/.npm-global`)
+2. Added `export NPM_CONFIG_PREFIX="$HOME/.npm-global"` to `~/.bashrc` (line 385) — functionally equivalent but nvm-compatible
+3. Removed duplicate `export PATH=~/.npm-global/bin:$PATH` from `~/.bashrc` (was on line 391)
+4. Removed orphaned `~/npm-global/` directory (old prefix, not in PATH)
+
+**To revert:**
+1. Create `~/.npmrc` with content: `prefix=~/.npm-global`
+2. Remove `export NPM_CONFIG_PREFIX="$HOME/.npm-global"` from `~/.bashrc`
+
+---
+
+## 2026-02-25 — Clean stale pacman download directories
+
+**Problem:** `yay -Scc` / `pacman -Scc` cannot remove 43 stale `download-*` directories from `/var/cache/pacman/pkg/` (pacman only removes files, not directories).
+
+**Root Cause:** Leftover temporary directories from interrupted package downloads, owned by `alpm` user.
+
+**Fix:** `sudo rm -rf /var/cache/pacman/pkg/download-*/`
+
+**To revert:** Not applicable (empty temporary directories, safe to remove).
+
+---
+
 ## 2026-02-21 — Always overwrite arch-context_latest.md
 
 **Change:** Modified `arch-context-generator.sh` to write directly to `arch-context_latest.md` instead of creating timestamped files with a symlink.

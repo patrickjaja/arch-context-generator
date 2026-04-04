@@ -1,5 +1,22 @@
 # PC System CHANGELOG
 
+## 2026-04-05 — System cleanup: remove unused packages and stale kernel modules
+
+**Problem:** System accumulated dead weight over time — orphaned electron versions, deprecated GNOME packages, debug symbols, unused GPU drivers, and stale kernel module directories from 2023-era kernels.
+
+**Changes:**
+1. Removed 3 orphaned Electron versions (`electron25-bin`, `electron35`, `electron38`) — no package depended on them
+2. Removed deprecated/dead packages: `gksu`, `libgksu` (dead since 2018), `caribou` (unmaintained on-screen keyboard), `neofetch-git` (abandoned, replaced by `fastfetch-git`), `clutter` + `cogl` (legacy GNOME rendering libs, unrequired)
+3. Removed `xf86-video-openchrome` — VIA/S3 GPU driver, irrelevant on Intel Iris Xe (i915)
+4. Removed `openbox-themes-pambudi-git` — system runs XFCE/Xfwm4, Openbox not in use
+5. Removed 18 `-debug` companion packages (~253 MiB) — not actively debugging any of these
+6. Cleaned pacman cache with `paccache -rk2` (kept 2 most recent versions per package)
+7. Cleaned 10 stale kernel module directories from `/usr/lib/modules/` (6.4.x, 6.5.x, 6.9.x)
+
+**To revert:** Reinstall individual packages with `yay -S <package>`. Debug packages can be re-enabled per-package in `/etc/makepkg.conf`.
+
+---
+
 ## 2026-04-05 — Replace pandoc-cli with pandoc-bin to eliminate Haskell dependency churn
 
 **Problem:** Every system update pulled ~90 `haskell-*` package rebuilds (226 packages total) due to cascading ABI rebuilds in the Haskell stack — even when no upstream versions changed (only `pkgrel` bumps).

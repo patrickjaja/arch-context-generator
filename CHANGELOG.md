@@ -1,5 +1,22 @@
 # PC System CHANGELOG
 
+## 2026-04-05 — Replace pandoc-cli with pandoc-bin to eliminate Haskell dependency churn
+
+**Problem:** Every system update pulled ~90 `haskell-*` package rebuilds (226 packages total) due to cascading ABI rebuilds in the Haskell stack — even when no upstream versions changed (only `pkgrel` bumps).
+
+**Root Cause:** `pandoc-cli` is packaged with dynamically-linked Haskell libraries on Arch. When GHC or any core Haskell library rebuilds, the entire dependency tree must be rebuilt due to Haskell's strict ABI requirements.
+
+**Changes:**
+1. Removed `pandoc-cli` and all 226 orphaned `haskell-*` dependencies (`yay -Rns pandoc-cli`)
+2. Installed `pandoc-bin` from AUR — a statically-linked upstream binary with zero dependencies
+3. `ripgrep-all` (optional dep on pandoc) is unaffected — it bundles its own adapters
+
+**To revert:**
+1. `yay -Rns pandoc-bin`
+2. `yay -S pandoc-cli`
+
+---
+
 ## 2026-03-16 — Fix WPS Office Spreadsheets/Presentation/PDF not launching
 
 **Problem:** WPS Spreadsheets (`et`), Presentation (`wpp`), and PDF (`wpspdf`) fail to open when launched from the XFCE menu or terminal. WPS Writer (`wps`) works fine.

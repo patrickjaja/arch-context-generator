@@ -1,5 +1,17 @@
 # PC System CHANGELOG
 
+## 2026-04-09 — Fix /var/lib/nfs/statd/ directory permissions after nfs-utils upgrade
+
+**Problem:** `pacman` warning during `nfs-utils 2.9.1-1` upgrade: `directory permissions differ on /var/lib/nfs/statd/ — filesystem: 755, package: 700`.
+
+**Root Cause:** Directory had `755` (world-readable) from a previous package version. The current `nfs-utils` package expects `700` since `statd` holds NFS lock state that should be private to `rpcuser`.
+
+**Change:** `sudo chmod 700 /var/lib/nfs/statd/`
+
+**To revert:** `sudo chmod 755 /var/lib/nfs/statd/`
+
+---
+
 ## 2026-04-05 — System cleanup: remove unused packages and stale kernel modules
 
 **Problem:** System accumulated dead weight over time — orphaned electron versions, deprecated GNOME packages, debug symbols, unused GPU drivers, and stale kernel module directories from 2023-era kernels.

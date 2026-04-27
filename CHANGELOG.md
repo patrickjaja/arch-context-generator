@@ -1,5 +1,60 @@
 # PC System CHANGELOG
 
+## 2026-04-27 — Major disk cleanup: recovered ~182G (98% → 71%)
+
+**Problem:** Root partition at 98% full (671G/727G used, only 20G free).
+
+**Root Cause:** Accumulated caches, stale build artifacts, unused Docker resources, old JetBrains IDE versions, and unpacked git objects across the system.
+
+**Changes:**
+
+1. **User caches cleared (~60G):**
+   - `~/.cache/yay/` (29G) — AUR build cache
+   - `~/.cache/paru/` (1.4G, sudo) — AUR build cache with read-only Go modules
+   - `~/.npm/` (15G, sudo) — npm package cache
+   - `~/.cache/pip/`, `~/.cache/pip-tools/` (6.5G) — Python package caches
+   - `~/.cache/uv/` (5.4G) — uv Python cache
+   - `~/.cache/phpactor/` (3.9G), `~/.cache/google-cloud-tools-java/` (2G), `~/.cache/puppeteer/` (1.8G), `~/.cache/electron/` (1.6G), `~/.cache/Cypress/` (604M)
+
+2. **JetBrains old IDE versions removed (~14G):**
+   - Cleared `~/.cache/JetBrains/` and `~/.local/share/JetBrains/` for: PhpStorm ≤2025.2, IdeaIC ≤2025.2, PyCharmCE ≤2025.2, GoLand 2025.2
+   - Kept only current versions (2025.3 + 2026.1)
+
+3. **Docker full prune (~24G):**
+   - `docker system prune -a --volumes --force`
+   - Removed 22 stopped containers, unused images, 124 volumes (93% reclaimable), build cache
+
+4. **Stale project dependencies in ~/development (~35G):**
+   - Removed `node_modules/` from 23 projects untouched >1 year (suite_*, lr-*, b2b-*, oryx, esaspryker, etc.)
+   - Removed `vendor/` from 21 stale PHP projects
+   - Removed `venv`/`.venv` from 10 stale Python projects
+
+5. **~/Downloads cleanup (~11G):**
+   - 3 Linux ISOs (linuxmint, lmde, MX-23.6 — 7.6G)
+   - Windows `.exe` installers, `.deb` packages (540M)
+   - Old data dirs (IPS_FULL, migration_files_dt, test, tmp, joyn — 1.7G)
+   - Old log/data files (.dat, .log, .mov, .tif — 500M)
+
+6. **Misc home dir cleanup (2.8G):**
+   - `java_error_in_phpstorm_.hprof` (1.8G) + `java_error_in_phpstorm.hprof` (982M) — JVM crash heap dumps
+
+7. **Trash emptied (6.9G):** `~/.local/share/Trash/`
+
+8. **Pacman cleanup (~7G):**
+   - `sudo paccache -rk1` — trimmed package cache to 1 version per package
+   - `sudo pacman -Rns $(pacman -Qtdq)` — removed 42 orphaned packages
+
+9. **git gc on ~/development/claude-desktop-bin (~13G):**
+   - `.git/objects/` had 15G of loose objects from committed binaries
+   - `git gc --aggressive --prune=now` repacked 16G → 3.3G
+   - Removed `build/`, `tmp/`, `cache/`, `tmp-asar-extract/` build artifacts (2.5G)
+
+**Result:** `/dev/nvme0n1p5` — 671G used → 489G used, 20G free → 202G free (98% → 71%)
+
+**To revert:** Caches and dependency dirs regenerate automatically on next use (`npm install`, `composer install`, `pip install`, `yay -S`, etc.). Docker images/volumes need to be recreated. JetBrains caches rebuild on next IDE launch. `git gc` is non-destructive — no history lost.
+
+---
+
 ## 2026-04-09 — Fix /var/lib/nfs/statd/ directory permissions after nfs-utils upgrade
 
 **Problem:** `pacman` warning during `nfs-utils 2.9.1-1` upgrade: `directory permissions differ on /var/lib/nfs/statd/ — filesystem: 755, package: 700`.

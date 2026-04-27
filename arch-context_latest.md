@@ -1,5 +1,5 @@
 # Arch Linux System Context
-Generated: Mo 5. Jan 09:11:30 CET 2026
+Generated: Mo 27. Apr 13:07:06 CEST 2026
 Hostname: 
 Script Version: 2.0
 Mode: Full
@@ -10,7 +10,7 @@ Mode: Full
 
 ## Kernel Information
 ```
-Linux jajapc 6.17.9-arch1-1 #1 SMP PREEMPT_DYNAMIC Mon, 24 Nov 2025 15:21:09 +0000 x86_64 GNU/Linux
+Linux jajapc 6.19.12-arch1-1 #1 SMP PREEMPT_DYNAMIC Sat, 11 Apr 2026 22:36:29 +0000 x86_64 GNU/Linux
 ```
 
 ## CPU Information
@@ -26,8 +26,8 @@ NUMA node0 CPU(s):                       0-15
 ## Memory Information
 ```
                total        used        free      shared  buff/cache   available
-Mem:            30Gi       4,7Gi        23Gi       665Mi       3,5Gi        26Gi
-Swap:           29Gi          0B        29Gi
+Mem:            30Gi        14Gi       4,8Gi       1,4Gi        13Gi        16Gi
+Swap:           29Gi        11Mi        29Gi
 ```
 
 ## Disk Layout
@@ -45,7 +45,7 @@ nvme0n1     953,9G disk                      PM9A1 NVMe Samsung 1024GB
 ## Disk Usage
 ```
 Filesystem      Size  Used Avail Use% Mounted on
-/dev/nvme0n1p5  727G  527G  164G  77% /
+/dev/nvme0n1p5  727G  665G   26G  97% /
 /dev/nvme0n1p1   96M   65M   32M  68% /boot/efi
 ```
 
@@ -66,28 +66,32 @@ curr1:         2.70 A  (max =  +2.70 A)
 
 iwlwifi_1-virtual-0
 Adapter: Virtual device
-temp1:        +39.0°C  
+temp1:        +46.0°C  
 
 dell_smm-virtual-0
 Adapter: Virtual device
-fan1:           0 RPM  (min =    0 RPM, max = 6800 RPM)
-fan2:           0 RPM  (min =    0 RPM, max = 6500 RPM)
-temp1:        +26.0°C  
-temp2:        +39.0°C  
-temp3:        +40.0°C  
-temp4:        +40.0°C  
-temp5:        +43.0°C  
-temp6:        +29.0°C  
-temp7:        +20.0°C  
-pwm1:              0%
-pwm2:              0%
+fan1:        2794 RPM  (min =    0 RPM, max = 6800 RPM)
+fan2:        2685 RPM  (min =    0 RPM, max = 6500 RPM)
+temp1:        +35.0°C  
+temp2:        +44.0°C  
+temp3:        +45.0°C  
+temp4:        +45.0°C  
+temp5:        +47.0°C  
+temp6:        +36.0°C  
+temp7:        +29.0°C  
+pwm1:             64%  MANUAL CONTROL
+pwm2:             64%  MANUAL CONTROL
 
 nvme-pci-0100
 Adapter: PCI adapter
-Composite:    +40.9°C  (low  = -273.1°C, high = +82.8°C)
+Composite:    +45.9°C  (low  = -273.1°C, high = +82.8°C)
                        (crit = +84.8°C)
-Sensor 1:     +40.9°C  (low  = -273.1°C, high = +65261.8°C)
-Sensor 2:     +41.9°C  (low  = -273.1°C, high = +65261.8°C)
+Sensor 1:     +45.9°C  (low  = -273.1°C, high = +65261.8°C)
+Sensor 2:     +47.9°C  (low  = -273.1°C, high = +65261.8°C)
+
+mt7921_phy1-virtual-0
+Adapter: Virtual device
+temp1:        +34.0°C  
 
 ucsi_source_psy_USBC000:001-isa-0000
 Adapter: ISA adapter
@@ -96,37 +100,37 @@ curr1:       1000.00 mA (max =  +1.00 A)
 
 coretemp-isa-0000
 Adapter: ISA adapter
-Package id 0:  +52.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 0:        +48.0°C  (high = +100.0°C, crit = +100.0°C)
+Package id 0:  +56.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 0:        +50.0°C  (high = +100.0°C, crit = +100.0°C)
 Core 4:        +52.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 8:        +49.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 12:       +51.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 16:       +48.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 17:       +48.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 18:       +48.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 19:       +48.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 20:       +44.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 21:       +44.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 22:       +44.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 23:       +44.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 8:        +56.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 12:       +54.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 16:       +52.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 17:       +52.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 18:       +52.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 19:       +51.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 20:       +49.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 21:       +49.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 22:       +49.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 23:       +49.0°C  (high = +100.0°C, crit = +100.0°C)
 
 dell_ddv-virtual-0
 Adapter: Virtual device
-CPU Fan:        0 RPM
-CPU Fan:        0 RPM
-CPU:          +26.0°C  (low  =  +0.0°C, high =  +0.0°C)
-Ambient:      +39.0°C  (low  =  +0.0°C, high =  +0.0°C)
-SODIMM:       +40.0°C  (low  =  +0.0°C, high =  +0.0°C)
-Ambient:      +40.0°C  (low  =  +0.0°C, high =  +0.0°C)
-Ambient:      +43.0°C  (low  =  +0.0°C, high =  +0.0°C)
-Ambient:      +29.0°C  (low  =  +0.0°C, high =  +0.0°C)
-Unknown:      +20.0°C  (low  =  +0.0°C, high =  +0.0°C)
+CPU Fan:     2794 RPM
+CPU Fan:     2685 RPM
+CPU:          +35.0°C  (low  =  +0.0°C, high =  +0.0°C)
+Ambient:      +44.0°C  (low  =  +0.0°C, high =  +0.0°C)
+SODIMM:       +45.0°C  (low  =  +0.0°C, high =  +0.0°C)
+Ambient:      +45.0°C  (low  =  +0.0°C, high =  +0.0°C)
+Ambient:      +47.0°C  (low  =  +0.0°C, high =  +0.0°C)
+Ambient:      +36.0°C  (low  =  +0.0°C, high =  +0.0°C)
+Unknown:      +29.0°C  (low  =  +0.0°C, high =  +0.0°C)
 
 BAT0-acpi-0
 Adapter: ACPI interface
-in0:          12.12 V  
-temp:         +20.3°C  
-curr1:       886.00 mA 
+in0:          12.51 V  
+temp:         +29.4°C  
+curr1:       1000.00 uA 
 
 ```
 
@@ -155,8 +159,8 @@ LOGO=archlinux-logo
 
 ## Systemd Version
 ```
-systemd 258 (258.3-1-arch)
-+PAM +AUDIT -SELINUX +APPARMOR -IMA +IPE +SMACK +SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP -SYSVINIT +LIBARCHIVE
+systemd 260 (260.1-1-arch)
++PAM +AUDIT -SELINUX +APPARMOR -IMA +IPE +SMACK +SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP +LIBARCHIVE
 ```
 
 ## Locale Settings
@@ -179,10 +183,10 @@ System Locale: LANG=en_US.UTF-8
 
 ## Time & Date Settings
 ```
-               Local time: Mo 2026-01-05 09:11:31 CET
-           Universal time: Mo 2026-01-05 08:11:31 UTC
-                 RTC time: Mo 2026-01-05 08:11:31
-                Time zone: Europe/Berlin (CET, +0100)
+               Local time: Mo 2026-04-27 13:07:07 CEST
+           Universal time: Mo 2026-04-27 11:07:07 UTC
+                 RTC time: Mo 2026-04-27 11:07:07
+                Time zone: Europe/Berlin (CEST, +0200)
 System clock synchronized: yes
               NTP service: active
           RTC in local TZ: no
@@ -194,9 +198,9 @@ System clock synchronized: yes
        Icon name: computer-laptop
          Chassis: laptop 💻
       Machine ID: fa40f04e442940fa844c0b613295a734
-         Boot ID: a00d1da1c3544606a8799ea558661e3b
+         Boot ID: 7ed7a87b35974e7ca51b1998a793aa74
 Operating System: Arch Linux
-          Kernel: Linux 6.17.9-arch1-1
+          Kernel: Linux 6.19.12-arch1-1
     Architecture: x86-64
  Hardware Vendor: Dell Inc.
   Hardware Model: XPS 9320
@@ -204,21 +208,21 @@ Operating System: Arch Linux
 Hardware Version: A00
 Firmware Version: 2.0.0
    Firmware Date: Mon 2023-02-06
-    Firmware Age: 2y 10month 4w 1d
+    Firmware Age: 3y 2month 2w 5d
 ```
 
 # Boot & Kernel Configuration
 
 ## Kernel Command Line
 ```
-BOOT_IMAGE=/boot/vmlinuz-linux root=UUID=5c148df8-cbd4-4e4f-aba0-4bb6d63778c8 rw loglevel=3 audit=0 nvme_load=yes
+BOOT_IMAGE=/boot/vmlinuz-linux root=UUID=5c148df8-cbd4-4e4f-aba0-4bb6d63778c8 rw loglevel=3 audit=0 nvme_load=yes i915.enable_psr2_sel_fetch=0
 ```
 
 ## Available Kernels
 ```
--rw------- 1 root root 200626358 15. Dez 08:17 /boot/initramfs-linux-fallback.img
--rw------- 1 root root  20822659 15. Dez 08:17 /boot/initramfs-linux.img
--rw-r--r-- 1 root root  16445632 27. Nov 14:35 /boot/vmlinuz-linux
+-rw------- 1 root root 201253853 20. Apr 22:44 /boot/initramfs-linux-fallback.img
+-rw------- 1 root root  21585920 20. Apr 22:44 /boot/initramfs-linux.img
+-rw-r--r-- 1 root root  16478720 20. Apr 22:43 /boot/vmlinuz-linux
 ```
 
 ## GRUB Configuration
@@ -229,7 +233,7 @@ File: `/etc/default/grub`
 GRUB_DEFAULT="0"
 GRUB_TIMEOUT="1"
 GRUB_DISTRIBUTOR="ArcoLinux"
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 audit=0 nvme_load=yes"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 audit=0 nvme_load=yes i915.enable_psr2_sel_fetch=0"
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
@@ -280,35 +284,35 @@ GRUB_DISABLE_RECOVERY="true"
 ## Loaded Kernel Modules (Top 30)
 ```
 Module                  Size  Used by
-nf_conntrack_netlink    61440  0
-xt_nat                 12288  22
-xt_tcpudp              16384  28
-iptable_raw            12288  1
-veth                   40960  0
-rfcomm                102400  4
+tun                    73728  2
+uinput                 24576  0
+rfcomm                110592  4
 snd_seq_dummy          12288  0
 snd_hrtimer            12288  1
-snd_seq               131072  7 snd_seq_dummy
-xt_conntrack           12288  6
-xt_MASQUERADE          16384  6
-bridge                454656  0
+snd_seq               135168  7 snd_seq_dummy
+xt_conntrack           12288  4
+xt_MASQUERADE          16384  4
+bridge                462848  0
 stp                    12288  1 bridge
 llc                    16384  2 bridge,stp
-xfrm_user              73728  1
+xfrm_user              77824  1
 xfrm_algo              16384  1 xfrm_user
-ip6table_nat           12288  1
-ip6table_filter        12288  1
-ip6_tables             36864  2 ip6table_filter,ip6table_nat
 xt_set                 24576  0
 ip_set                 69632  1 xt_set
-iptable_nat            12288  5
-nf_nat                 61440  4 ip6table_nat,xt_nat,iptable_nat,xt_MASQUERADE
-nf_conntrack          196608  5 xt_conntrack,nf_nat,xt_nat,nf_conntrack_netlink,xt_MASQUERADE
+nft_chain_nat          12288  5
+nf_nat                 65536  2 nft_chain_nat,xt_MASQUERADE
+nf_conntrack          196608  3 xt_conntrack,nf_nat,xt_MASQUERADE
 nf_defrag_ipv6         24576  1 nf_conntrack
 nf_defrag_ipv4         12288  1 nf_conntrack
 xt_addrtype            12288  4
-iptable_filter         12288  1
-nf_tables             389120  0
+nft_compat             24576  12
+x_tables               65536  5 xt_conntrack,nft_compat,xt_addrtype,xt_set,xt_MASQUERADE
+nf_tables             397312  126 nft_compat,nft_chain_nat
+intel_ipu6_isys       143360  0
+videobuf2_dma_sg       24576  1 intel_ipu6_isys
+ivsc_ace               16384  0
+ivsc_csi               20480  1
+uhid                   28672  3
 Error executing: lsmod | head -30
 ```
 
@@ -316,7 +320,7 @@ Error executing: lsmod | head -30
 
 ## Total Installed Packages Count
 ```
-1884
+2058
 ```
 
 ## Explicitly Installed Packages (Grouped)
@@ -382,6 +386,8 @@ gnome-system-monitor
 gnome-terminal
 
 ## Python
+python-openpyxl
+python-pandas
 python-pip
 python-pipx
 python-poetry
@@ -389,6 +395,7 @@ python-pylint
 python-pyparted
 python-pywal
 python-virtualenv
+python-weasyprint
 
 ## Container & Virtualization
 docker
@@ -400,13 +407,11 @@ lib32-giflib
 lib32-gnutls
 lib32-gst-plugins-base-libs
 lib32-gtk3
-lib32-libjpeg-turbo
 lib32-libpng
 lib32-libva
 lib32-libxcomposite
 lib32-libxinerama
 lib32-libxslt
-lib32-mpg123
 lib32-ocl-icd
 lib32-openal
 lib32-v4l-utils
@@ -416,6 +421,7 @@ libgsf
 libmtp
 libopenraw
 libpwquality
+libreoffice-fresh
 libusb-compat
 
 ## Other Packages
@@ -435,7 +441,6 @@ android-sdk-build-tools
 android-sdk-platform-tools
 android-studio
 android-tools
-antigravity
 appstream
 arandr
 arc-gtk-theme
@@ -477,6 +482,7 @@ catfish
 chromium
 cinnamon
 cinnamon-translations
+claude-cowork-service
 claude-desktop-bin
 clonezilla
 code-insiders-bin
@@ -517,8 +523,7 @@ edu-shells-git
 edu-variety-config-git
 edu-xfce-git
 efibootmgr
-electron
-electron25-bin
+electron-nightly-bin
 encfs
 epiphany
 espeak-ng
@@ -533,13 +538,12 @@ fastfetch-git
 fatresize
 fd
 feh
-ferdium-bin
 ffmpegthumbnailer
 figma-linux-bin
 file-roller
 firefox
 fish
-flameshot-imgur
+flameshot
 fluent-icon-theme-git
 font-manager
 freetype2
@@ -549,10 +553,11 @@ garcon
 geany
 geany-plugins
 ghostscript
+ghostty
 gimp
 git
 github-cli
-gksu
+glab
 go
 google-chrome
 google-cloud-cli
@@ -653,6 +658,7 @@ mkinitcpio-openswap
 mobile-broadband-provider-info
 modemmanager
 moreutils
+most
 mousepad
 mtools
 mtpfs
@@ -662,7 +668,6 @@ nano
 nbd
 ndisc6
 nemo-fileroller
-neofetch-git
 neovim
 networkmanager
 network-manager-applet
@@ -672,8 +677,11 @@ networkmanager-pptp
 networkmanager-vpnc
 nfs-utils
 nilfs-utils
+nim
 nomacs
 noto-fonts
+noto-fonts-emoji
+nph-bin
 npm
 nss-mdns
 ntfs-3g
@@ -684,7 +692,6 @@ nvme-cli
 obs-studio
 oh-my-zsh-git
 okular
-openbox-themes-pambudi-git
 openconnect
 open-iscsi
 openoffice-bin
@@ -696,6 +703,7 @@ otf-libertinus
 pace
 pacmanlogviewer
 pacquery
+pandoc-bin
 parole
 partclone
 parted
@@ -705,6 +713,7 @@ pcsclite
 pdfarranger
 peek
 php
+phpactor
 php-amqp
 picom-git
 pipewire-alsa
@@ -726,11 +735,14 @@ pptpclient
 pragha
 pv
 qbittorrent
+qemu-base
+qemu-img
 qt5ct
 rate-mirrors
 refind
 reflector
 reiserfsprogs
+resonance-bin
 ripgrep
 ripgrep-all
 ristretto
@@ -749,12 +761,13 @@ simple-scan
 simplescreenrecorder-qt6-git
 smartmontools
 sniffnet
+socat
 sof-firmware
 sparklines-git
 speedtest-cli
 squashfs-tools
 sshpass
-steam
+strace
 sublime-text-4
 sudo
 sweet-theme-git
@@ -773,7 +786,6 @@ thunar-shares-plugin
 thunar-volman
 time
 tinty-git
-tiny-rdm
 tk
 tlp
 tmux
@@ -840,8 +852,10 @@ vivaldi
 vivaldi-ffmpeg-codecs
 vkd3d
 vlc
+vlc-plugins-all
 volumeicon
 vpnc
+vtsls
 w3m
 wd719x-firmware
 webkit2gtk
@@ -874,7 +888,6 @@ xf86-input-void
 xf86-video-amdgpu
 xf86-video-ati
 xf86-video-fbdev
-xf86-video-openchrome
 xf86-video-vesa
 xfburn
 xfce4-appfinder
@@ -932,6 +945,7 @@ zoom
 zsh
 zsh-completions
 zsh-syntax-highlighting
+zsync
 ```
 
 ## AUR Packages
@@ -939,10 +953,10 @@ zsh-syntax-highlighting
 aic94xx-firmware 30-10.1
 alacritty-themes 6.0.2-1
 android-sdk 26.1.1-2.3
-android-sdk-build-tools r36.1-2
-android-sdk-platform-tools 36.0.0-1
-android-studio 2025.2.2.7-1
-antigravity 1.11.17-1
+android-sdk-build-tools r37.0.0-1
+android-sdk-platform-tools 37.0.0-1
+android-sdk-platform-tools-debug 37.0.0-1
+android-studio 2025.3.3.7-1
 arc-gtk-theme 20221218-2
 archlinux-logout-git 25.10-01
 archlinux-tweak-tool-git 25.11-01
@@ -951,15 +965,22 @@ ausweisapp2 2.4.0-1
 betterlockscreen 4.4.0-1.3
 bfg 1.15.0-1
 bibata-cursor-theme 2.0.7-1.1
-brave-bin 1:1.85.116-1
-cachyos-ananicy-rules-git 20251114.r666.g933c077-1
+blueberry 1.4.8-2
+brave-bin 1:1.89.137-1
+cachyos-ananicy-rules-git 20260403.r2052.g680d3ac-1
 candy-icons-git r1346.1be42f2-1
 chaotic-keyring 20251028-1
 chaotic-mirrorlist 20251025-1
-claude-desktop-bin 1.0.1768-1
+claude-cowork-service 1.0.50-1
+claude-cowork-service-debug 1.0.50-1
+claude-desktop-bin 1.4758.0-1
+clutter-debug 1.26.4-4
 code-insiders-bin 1.102.0_1750742647-1
-devtoys-bin 2.0.8.0-2
-downgrade 11.5.5-1
+cogl-debug 1.22.8-5
+devtoys-bin 2.0.9.0-2
+devtoys-bin-debug 2.0.9.0-2
+dma 0.14-1
+downgrade 12.0.1-1
 dxvk-mingw-git 2.7.1.r227.gb128f9f44-1
 edu-arc-kde 25.10-01
 edu-chadwm-git 25.10-01
@@ -971,217 +992,124 @@ edu-sddm-simplicity-git 25.10-02
 edu-shells-git 25.10-02
 edu-variety-config-git 25.10-02
 edu-xfce-git 25.10-02
-electron25-bin 25.9.8-3
+electron-nightly-bin 43.0.0nightly.20260327-1
+electron-nightly-bin-debug 43.0.0nightly.20260327-1
 etcher-bin 2.1.4-1
 fastfetch-git 2.55.1.r2.gcd8ab8e5-1
-ferdium-bin 7.1.1-1
 figma-linux-bin 0.11.5-0
-flameshot-imgur 13.3.0-1
 fluent-icon-theme-git 2025.08.21.r6.g8a99a6d-1
-gconf 3.2.6+11+g07808097-15
-gksu 2.0.2-6
-google-chrome 143.0.7499.109-1
-google-cloud-cli 549.0.1-1
+gnome-bluetooth 3.34.5+r16+g61cfff1c-3
+gnome-bluetooth-debug 3.34.5+r16+g61cfff1c-3
+google-chrome 147.0.7727.101-1
+google-cloud-cli 565.0.0-1
 grub-customizer 5.2.5-2
 gtk2 2.24.33-5
 gtkmm 1:2.24.5-5
 hardcode-fixer-git 2.0-1
 hw-probe 1.6.6-3
 i3lock-color 2.13.c.5-3.3
-imagewriter 1.10.1432200249.1d253d9.2.22-1
-insync 3.9.6.60027-2
+imagewriter 1.10.1432200249.1d253d9.2.24-1
+imagewriter-debug 1.10.1432200249.1d253d9.2.24-1
+insync 3.9.8.60034-2
 iso-flag-png 1.0.4-1
-jetbrains-toolbox 3.1.2.64642-1
-k6 1.4.0-1
-k6-debug 1.4.0-1
+jetbrains-toolbox 3.4.3.81140-1
+k6 1.7.1-1
+k6-debug 1.7.1-1
 la-capitaine-icon-theme 0.6.2-1.2
 lastpass 4.147.2-1
 layan-gtk-theme-git 2023052342g6390f8e-1
-lib32-alsa-lib 1.2.14-2
-lib32-alsa-plugins 1.2.12-1
-lib32-at-spi2-core 2.58.1-2
-lib32-attr 2.5.2-1
-lib32-audit 4.1.2-1
-lib32-brotli 1.1.0-1
-lib32-bzip2 1.0.8-4
-lib32-cairo 1.18.4-1
-lib32-colord 1.4.8-1
-lib32-curl 8.17.0-1
-lib32-dbus 1.16.2-1
-lib32-e2fsprogs 1.47.3-1
-lib32-expat 2.7.3-1
-lib32-fontconfig 2:2.17.1-1
-lib32-freetype2 2.14.1-1
-lib32-fribidi 1.0.16-2
-lib32-gdk-pixbuf2 2.44.4-1
-lib32-giflib 5.2.2-1
-lib32-glib2 2.86.1-1
-lib32-gmp 6.3.0-2
-lib32-gnutls 3.8.10-1
-lib32-gst-plugins-base-libs 1.26.8-1
-lib32-gstreamer 1.26.8-1
-lib32-gtk3 1:3.24.50-1
-lib32-harfbuzz 12.2.0-2
-lib32-icu 78.1-2
-lib32-json-c 0.18-2
-lib32-keyutils 1.6.3-2
-lib32-krb5 1.21.3-1
-lib32-lcms2 2.17-1
-lib32-libcap 2.77-1
-lib32-libcups 2.4.11-1
-lib32-libdatrie 0.2.13-3
-lib32-libdrm 2.4.128-1
-lib32-libelf 0.194-1
-lib32-libepoxy 1.5.10-2
-lib32-libffi 3.5.2-1
-lib32-libgcrypt 1.11.2-1
-lib32-libglvnd 1.7.0-1
-lib32-libgpg-error 1.56-1
-lib32-libgudev 238-3
-lib32-libidn2 2.3.7-1
-lib32-libjpeg-turbo 3.1.2-1
-lib32-libldap 2.6.10-1
-lib32-libnghttp2 1.68.0-1
-lib32-libnghttp3 1.12.0-1
-lib32-libnm 1.54.1-1
-lib32-libnsl 2.0.1-1
-lib32-libpciaccess 0.18.1-1
-lib32-libpipewire 1:1.4.9-1
-lib32-libpng 1.6.50-1
-lib32-libpsl 0.21.5-1
-lib32-librsvg 2:2.61.3-1
-lib32-libssh2 1.11.1-1
-lib32-libtasn1 4.20.0-1
-lib32-libthai 0.1.29-3
-lib32-libtiff 4.7.1-1
-lib32-libtirpc 1.3.7-1
-lib32-libunistring 1.3-1
-lib32-libunwind 1.8.1-1
-lib32-libva 2.22.0-1
-lib32-libx11 1.8.12-2
-lib32-libxau 1.0.11-2
-lib32-libxcb 1.17.0-1
-lib32-libxcomposite 0.4.6-2
-lib32-libxcrypt 4.5.2-1
-lib32-libxcrypt-compat 4.5.2-1
-lib32-libxcursor 1.2.3-1
-lib32-libxdamage 1.1.6-2
-lib32-libxdmcp 1.1.5-1
-lib32-libxext 1.3.6-1
-lib32-libxfixes 6.0.1-2
-lib32-libxft 2.3.8-2
-lib32-libxi 1.8.2-1
-lib32-libxinerama 1.1.5-2
-lib32-libxkbcommon 1.13.0-1
-lib32-libxml2 2.15.1-2
-lib32-libxrandr 1.5.4-1
-lib32-libxrender 0.9.11-2
-lib32-libxshmfence 1.3.3-1
-lib32-libxslt 1.1.43-2
-lib32-libxss 1.2.4-2
-lib32-libxtst 1.2.5-2
-lib32-libxv 1.0.12-2
-lib32-libxxf86vm 1.1.5-2
-lib32-llvm-libs 1:21.1.5-1
-lib32-lm_sensors 1:3.6.2-2
-lib32-mesa 1:25.2.7-1
-lib32-mpg123 1.33.3-1
-lib32-ncurses 6.5-2
-lib32-nettle 3.10.2-1
-lib32-nspr 4.38.2-1
-lib32-nss 3.117-1
-lib32-ocl-icd 2.3.3-1
-lib32-openal 1.24.3-1
-lib32-openssl 1:3.6.0-1
-lib32-orc 0.4.41-1
-lib32-p11-kit 0.25.10-2
-lib32-pam 1.7.1-1
-lib32-pango 1:1.57.0-2
-lib32-pcre2 10.47-1
-lib32-pipewire 1:1.4.9-1
-lib32-pixman 0.46.4-1
-lib32-spirv-tools 1:1.4.328.1-1
-lib32-sqlite 3.51.0-1
-lib32-systemd 258.2-1
-lib32-util-linux 2.41.2-1
-lib32-v4l-utils 1.30.1-2
-lib32-vulkan-icd-loader 1.4.328.1-1
-lib32-vulkan-intel 1:25.2.7-1
-lib32-wayland 1.24.0-1
-lib32-xcb-util-keysyms 0.4.1-2
-lib32-xz 5.8.1-1
-lib32-zlib 1.3.1-2
-lib32-zstd 1.5.7-2
-libgksu 2.0.12-9
+lib32-gst-plugins-base-libs 1.28.1-3
+lib32-gstreamer 1.28.1-3
 lohit-fonts 2.95.5.1-2
 lyrebird 1.2.0-1
 menulibre 1:2.4.0-1.2
-mintlocale 1.6.4-1
-mintstick 1.6.4-1
+mintlocale 1.6.6-1
+mintstick 1.6.6-1
 mkinitcpio-firmware 1.6.0-1
 mkinitcpio-openswap 0.1.1-1
-neofetch-git 7.1.0.r166.gccd5d9f5-1.1
 nitrogen 1.6.1-6
-nomacs 1:3.21.1-1
+nomacs 1:3.22.0-1
+nomacs-debug 1:3.22.0-1
+nph-bin 0.6.1-1
+nph-bin-debug 0.6.1-1
 oh-my-zsh-git r7640.8a4d6fc0a-1
-openbox-themes-pambudi-git r32.8bdf5de-1
 openoffice-bin 4.1.16-1
 pace 1.4.2-1.4
-php-amqp 2.1.2-1
+pandoc-bin 3.9.0.2-1
+pandoc-bin-debug 3.9.0.2-1
+php-amqp 2.1.2-2
+php-amqp-debug 2.1.2-2
+phpactor 2025.12.21.1-1
 picom-git 2805_12.147.gbe577470_2025.11.01-1
-postman-bin 11.75.6-1
+postman-bin 12.6.8-1
 qt5-remoteobjects 5.15.18-1
-rate-mirrors 0.22.0-1
-reiserfsprogs 3.6.27-6
-reiserfsprogs-debug 3.6.27-6
+rate-mirrors-debug 0.25.0-1
+reiserfsprogs 3.6.27-7
+reiserfsprogs-debug 3.6.27-7
+resonance-bin 2.8.2-1
 sddm-git 0.21.0.51.gdfa5315-1
 simplescreenrecorder-qt6-git 0.4.4.r73.g232eac7-1.1
 sparklines-git v1.0.1.33.gab88ac6-1
-steam 1.0.0.85-1
 sublime-text-4 4.4200-1
 sweet-theme-git 6.0.r11.g9d09ed5-1
 the_platinum_searcher-bin 2.2.0-2
 thunar-extended 4.18.11-1
 tinty-git r244.639472c-1
-tiny-rdm 1.2.5-1
-ttf-joypixels 9.0.0-1
+ttf-joypixels 10.0.0-2
 ttf-mac-fonts 20100901.134-1.1
 ttf-meslo-nerd-font-powerlevel10k 2.3.3-1.1
 ttf-ms-win10-auto 10.0.19042.789-6
 ttf-proggy-clean 1.1.7-1
 ttf-wps-fonts 2.0-1.1
-upd72020x-fw 1:1.0.0-3
+upd72020x-fw 1:1.1.0-2
 urxvt-fullscreen 1-1
 urxvt-resize-font-git 27.b593580-1
-v4l-utils-git 1.28.1.r52.g363495b6-2
-ventoy-bin 1.1.09-1
-ventoy-bin-debug 1.1.09-1
+v4l-utils-git 1.32.0.r39.gbd0aabb9-1
+v4l-utils-git-debug 1.32.0.r39.gbd0aabb9-1
+ventoy-bin 1.1.11-4
+ventoy-bin-debug 1.1.11-4
 vimix-icon-theme-git 2025.08.26.r6.g8c877b9-1
-visual-studio-code-bin 1.107.0-1
+visual-studio-code-bin 1.116.0-1
+vtsls 0.3.0-1
+wails 2.12.0-2
+wails-debug 2.12.0-2
 wd719x-firmware 1-9
+webkit2gtk 2.50.6-1
 woeusb 5.2.4-1.1
-wps-office-cn 12.1.2.22571-1
+wps-office-cn 12.1.2.25882-1
+wps-office-cn-debug 12.1.2.25882-1
 wps-office-mime 11.1.0.11723-2
 wrk 4.2.0-3
 wttr 1.55.r0.g36893b1-1
-xf86-video-openchrome 0.6.0.r798.g0c75274-2
+xfce4-datetime-plugin 0.8.3-2
+xfwm4-themes 4.10.0-6
 yay-git 12.5.7.r0.g44dfda05-1
 yay-git-debug 12.5.7.r0.g44dfda05-1
-zoom 6.6.11-1
+zoom 7.0.0-1
 ```
 
 ## Orphan Packages (Top 20)
 ```
-appstream-glib 0.8.3-3
-archlinux-appstream-data 20251025-2
-k6-debug 1.4.0-1
-kauth 6.21.0-1
-kpty 6.21.0-1
-plasma-activities 6.5.4-1
-reiserfsprogs-debug 3.6.27-6
-rust 1:1.92.0-1
-ventoy-bin-debug 1.1.09-1
-yay-git-debug 12.5.7.r0.g44dfda05-1
+android-sdk-platform-tools-debug 37.0.0-1
+appstream-glib 0.8.3-4
+archlinux-appstream-data 20260326-1
+claude-cowork-service-debug 1.0.50-1
+clutter-debug 1.26.4-4
+cmake 4.3.1-1
+cogl-debug 1.22.8-5
+devtoys-bin-debug 2.0.9.0-2
+doxygen 1.16.1-3
+electron-nightly-bin-debug 43.0.0nightly.20260327-1
+git-lfs 3.7.1-1
+gnome-bluetooth-debug 3.34.5+r16+g61cfff1c-3
+gnome-online-accounts 3.58.1-1
+gobject-introspection 1.86.0-2
+gtk-doc 1.36.1-1
+imagewriter-debug 1.10.1432200249.1d253d9.2.24-1
+k6-debug 1.7.1-1
+kauth 6.25.0-1
+kpty 6.25.0-1
+lua-lpeg 1.1.0-5
 ```
 
 # System Configuration
@@ -1198,6 +1126,7 @@ File: `/etc/pacman.conf`
 # GENERAL OPTIONS
 #
 [options]
+IgnorePkg = flameshot
 # The following paths are commented out with their default values listed.
 # If you wish to use different paths, uncomment and update the paths.
 #RootDir     = /
@@ -1281,14 +1210,14 @@ Include = /etc/pacman.d/mirrorlist
 #[multilib-testing]
 #Include = /etc/pacman.d/mirrorlist
 
-#[multilib]
-#Include = /etc/pacman.d/mirrorlist
+[multilib]
+Include = /etc/pacman.d/mirrorlist
 
 # An example of a custom package repository.  See the pacman manpage for
 # tips on creating your own repositories.
 #[custom]
 #SigLevel = Optional TrustAll
-#Server = file:///home/<USER>
+... (101 lines total, showing first 100)
 ```
 
 ## Pacman Mirrors (Top 20)
@@ -1319,16 +1248,16 @@ tmpfs                                     /tmp           tmpfs   defaults,noatim
 
 ## Active Mounts with Options
 ```
-SOURCE         FSTYPE  SIZE   USED  AVAIL USE% TARGET
-/dev/nvme0n1p5 ext4    727G 526,8G 163,1G  72% /
-/dev/nvme0n1p1 vfat     96M  64,4M  31,6M  67% /boot/efi
+SOURCE         FSTYPE SIZE   USED AVAIL USE% TARGET
+/dev/nvme0n1p5 ext4   727G 664,1G 25,9G  91% /
+/dev/nvme0n1p1 vfat    96M  64,4M 31,6M  67% /boot/efi
 ```
 
 # Audio Configuration
 
 ## PulseAudio/PipeWire Info
 ```
-Server Name: PulseAudio (on PipeWire 1.4.9)
+Server Name: PulseAudio (on PipeWire 1.6.3)
 Server Version: 15.0.0
 Default Sample Specification: float32le 2ch 48000Hz
 Default Sink: alsa_output.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo
@@ -1337,37 +1266,41 @@ Default Source: alsa_input.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.an
 
 ## Audio Sinks
 ```
-91	alsa_output.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo	PipeWire	s24le 2ch 48000Hz	RUNNING
+91	alsa_output.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo	PipeWire	s24le 2ch 48000Hz	SUSPENDED
 93	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI3__sink	PipeWire	s32le 2ch 48000Hz	SUSPENDED
 94	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI2__sink	PipeWire	s32le 2ch 48000Hz	SUSPENDED
 95	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI1__sink	PipeWire	s32le 2ch 48000Hz	SUSPENDED
 96	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__Speaker__sink	PipeWire	s32le 2ch 48000Hz	SUSPENDED
+193	easyeffects_sink	PipeWire	float32le 2ch 48000Hz	SUSPENDED
 ```
 
 ## Audio Sources
 ```
-56	alsa_input.usb-046d_Logitech_StreamCam_F8EB8E25-02.stereo-fallback	PipeWire	s16le 2ch 48000Hz	SUSPENDED
-91	alsa_output.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo.monitor	PipeWire	s24le 2ch 48000Hz	RUNNING
-92	alsa_input.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo	PipeWire	s24le 2ch 48000Hz	RUNNING
+90	alsa_input.usb-046d_Logitech_StreamCam_F8EB8E25-02.analog-stereo	PipeWire	s16le 2ch 48000Hz	SUSPENDED
+91	alsa_output.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo.monitor	PipeWire	s24le 2ch 48000Hz	SUSPENDED
+92	alsa_input.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo	PipeWire	s24le 2ch 48000Hz	SUSPENDED
 93	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI3__sink.monitor	PipeWire	s32le 2ch 48000Hz	SUSPENDED
 94	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI2__sink.monitor	PipeWire	s32le 2ch 48000Hz	SUSPENDED
 95	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI1__sink.monitor	PipeWire	s32le 2ch 48000Hz	SUSPENDED
 96	alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__Speaker__sink.monitor	PipeWire	s32le 2ch 48000Hz	SUSPENDED
 97	alsa_input.pci-0000_00_1f.3-platform-sof_sdw.HiFi__Mic__source	PipeWire	s32le 2ch 48000Hz	SUSPENDED
+193	easyeffects_sink.monitor	PipeWire	float32le 2ch 48000Hz	SUSPENDED
+194	easyeffects_source	PipeWire	float32le 2ch 48000Hz	SUSPENDED
 ```
 
 ## WirePlumber Status
 ```
-PipeWire 'pipewire-0' [1.4.9, patrickjaja@jajapc, cookie:3408667186]
+PipeWire 'pipewire-0' [1.6.3, patrickjaja@jajapc, cookie:3282076850]
  └─ Clients:
-        32. WirePlumber                         [1.4.9, patrickjaja@jajapc, pid:2037]
-        33. pipewire                            [1.4.9, patrickjaja@jajapc, pid:2038]
-        46. WirePlumber [export]                [1.4.9, patrickjaja@jajapc, pid:2037]
-       185. xdg-desktop-portal                  [1.4.9, patrickjaja@jajapc, pid:3179]
-       186. PipeWire ALSA [volumeicon]          [1.4.9, patrickjaja@jajapc, pid:3639]
-       187. wpctl                               [1.4.9, patrickjaja@jajapc, pid:12747]
-       193. Google Chrome                       [1.4.9, patrickjaja@jajapc, pid:6081]
-       236. Google Chrome input                 [1.4.9, patrickjaja@jajapc, pid:6081]
+        32. WirePlumber                         [1.6.3, patrickjaja@jajapc, pid:2652]
+        33. pipewire                            [1.6.3, patrickjaja@jajapc, pid:2654]
+        46. WirePlumber [export]                [1.6.3, patrickjaja@jajapc, pid:2652]
+       185. xdg-desktop-portal                  [1.6.3, patrickjaja@jajapc, pid:2828]
+       186. PipeWire ALSA [volumeicon]          [1.6.3, patrickjaja@jajapc, pid:3291]
+       187. easyeffects                         [1.6.3, patrickjaja@jajapc, pid:3304]
+       235. wpctl                               [1.6.3, patrickjaja@jajapc, pid:63552]
+       236. Google Chrome input                 [1.6.3, patrickjaja@jajapc, pid:8790]
+       240. Chromium input                      [1.6.3, patrickjaja@jajapc, pid:4931]
 
 Audio
  ├─ Devices:
@@ -1377,30 +1310,25 @@ Audio
  │  
  ├─ Sinks:
  │      34. Alder Lake PCH-P High Definition Audio Controller HDMI / DisplayPort 3 Output [vol: 1.00]
- │      43. Alder Lake PCH-P High Definition Audio Controller HDMI / DisplayPort 1 Output [vol: 1.00]
- │      44. Alder Lake PCH-P High Definition Audio Controller Speaker [vol: 1.00]
+ │      43. Alder Lake PCH-P High Definition Audio Controller Speaker [vol: 1.00 MUTED]
+ │      44. Alder Lake PCH-P High Definition Audio Controller HDMI / DisplayPort 1 Output [vol: 1.00]
  │      45. Alder Lake PCH-P High Definition Audio Controller HDMI / DisplayPort 2 Output [vol: 1.00]
- │  *   91. ATR2100x-USB Microphone Analog Stereo [vol: 0.40]
+ │  *   91. ATR2100x-USB Microphone Analog Stereo [vol: 0.40 MUTED]
+ │     188. Easy Effects Sink                   [vol: 1.00]
  │  
  ├─ Sources:
  │      42. Alder Lake PCH-P High Definition Audio Controller SoundWire microphones [vol: 1.00]
- │      56. StreamCam Stereo                    [vol: 0.44]
+ │      90. StreamCam Analog Stereo             [vol: 0.44]
  │  *   92. ATR2100x-USB Microphone Analog Stereo [vol: 1.00]
+ │     189. Easy Effects Source                 [vol: 0.96]
  │  
  ├─ Filters:
  │  
  └─ Streams:
-       191. Google Chrome                                               
-            190. output_FR       > ATR2100x-USB Microphone:playback_FR	[active]
-            192. output_FL       > ATR2100x-USB Microphone:playback_FL	[active]
-       238. Google Chrome input                                         
-            198. input_FL        < ATR2100x-USB Microphone:capture_FL	[active]
-            200. monitor_FR     
-            201. input_FR        < ATR2100x-USB Microphone:capture_FR	[active]
-            202. monitor_FL     
 
 Video
  ├─ Devices:
+ │      56. ipu6                                [v4l2]
  │      57. ipu6                                [v4l2]
  │      58. ipu6                                [v4l2]
  │      59. ipu6                                [v4l2]
@@ -1432,9 +1360,8 @@ Video
  │      85. ipu6                                [v4l2]
  │      86. ipu6                                [v4l2]
  │      87. ipu6                                [v4l2]
- │      88. ipu6                                [v4l2]
+ │      88. Logitech StreamCam                  [v4l2]
  │      89. Logitech StreamCam                  [v4l2]
- │      90. Logitech StreamCam                  [v4l2]
  │  
  ├─ Sinks:
  │  
@@ -1480,13 +1407,13 @@ Video
 Settings
  └─ Default Configured Devices:
          0. Audio/Sink    alsa_output.pci-0000_00_1f.3-platform-sof_sdw.pro-output-2
-         1. Audio/Source  alsa_input.usb-C-Media_Electronics_Inc._Stream_800_HD_Studio-00.pro-input-0
+         1. Audio/Source  alsa_input.usb-Audio_Technica_Corp_ATR2100x-USB_Microphone-00.analog-stereo
 ```
 
 ## Sound Cards
 ```
  0 [sofsoundwire   ]: sof-soundwire - sof-soundwire
-                      DellInc.-XPS9320--0CW9KM
+                      DellInc.-XPS9320-0CW9KM
  1 [StreamCam      ]: USB-Audio - Logitech StreamCam
                       Logitech StreamCam at usb-0000:00:0d.0-1.2, super speed
  2 [Microphone     ]: USB-Audio - ATR2100x-USB Microphone
@@ -1519,7 +1446,7 @@ DPMS (Display Power Management Signaling):
 
 ## XFCE Version
 ```
-xfce4-session 4.20.3 (Xfce 4.20)
+xfce4-session 4.20.4 (Xfce 4.20)
 ```
 
 ## XFCE Panel Configuration
@@ -1559,7 +1486,7 @@ xfce4-session 4.20.3 (Xfce 4.20)
 /plugins/plugin-1/favorites            [xfce4-web-browser.desktop,xfce4-mail-reader.desktop,xfce4-file-manager.desktop,xfce4-terminal-emulator.desktop]
 /plugins/plugin-1/favorites-in-recent  true
 /plugins/plugin-1/menu-opacity         100
-/plugins/plugin-1/recent               [xfce-keyboard-settings.desktop,xfce4-appfinder.desktop,pavucontrol.desktop,xfce4-taskmanager.desktop,galculator.desktop,be.maartenbaert.simplescreenrecorder.desktop,mintstick-format.desktop,com.uploadedlobster.peek.desktop,xfce-display-settings.desktop,wps-office-wpp.desktop]
+/plugins/plugin-1/recent               [xfce-keyboard-settings.desktop,be.maartenbaert.simplescreenrecorder.desktop,com.anthropic.claude-desktop.desktop,wps-office-wps.desktop,org.gnome.Screenshot.desktop,com.uploadedlobster.peek.desktop,org.gnome.SystemMonitor.desktop,gimp.desktop,xfce-display-settings.desktop,galculator.desktop]
 /plugins/plugin-1/show-button-title    false
 /plugins/plugin-1/show-generic-names   false
 /plugins/plugin-1/show-menu-icons      true
@@ -1572,8 +1499,8 @@ xfce4-session 4.20.3 (Xfce 4.20)
 /plugins/plugin-4/hidden-items         [toolbox]
 /plugins/plugin-4/hidden-legacy-items  [pamac-tray]
 /plugins/plugin-4/icon-size            16
-/plugins/plugin-4/known-items          [easyeffects,jetbrains-toolbox,droidcam,obs,steam,Microsoft Teams - Preview1,vlc,SimpleScreenRecorder,zoom,Insync,tao application,chrome_status_icon_3,toolbox,chrome_status_icon_2,chrome_status_icon_1,flameshot,variety]
-/plugins/plugin-4/known-legacy-items   [wi-fi network connection “jajaspeed” active: jajaspeed (46%),wi-fi network connection “jajaspeed” active: jajaspeed (89%),wi-fi network connection “jajaspeed” active: jajaspeed (70%),volumeicon,wi-fi network connection “jajaspeed” active: jajaspeed (67%),wi-fi network connection “jajaspeed” active: jajaspeed (61%),xfce4-power-manager,wi-fi network connection “jajaspeed” active: jajaspeed (65%),electron,wi-fi network connection “jajaspeed” active: jajaspeed (66%),wi-fi network connection “jajaspeed” active: jajaspeed (69%),wi-fi network connection “jajaspeed” active: jajaspeed (68%),wi-fi network connection “jajaspeed” active: jajaspeed (62%),wi-fi network connection “jajaspeed 5 ghz” active: jajaspeed (59%),wi-fi network connection “jajaspeed” active: jajaspeed (57%),wi-fi network connection “jajaspeed” active: jajaspeed (59%),wi-fi network connection “davidwesseler” active: davidwesseler (70%),wi-fi network connection “jajaspeed 2” active: jajaspeed (68%),wi-fi network connection “jajaspeed 2” active: jajaspeed (63%),wi-fi network connection “jajaspeed 2” active: jajaspeed (65%),wi-fi network connection “jajaspeed 3” active: jajaspeed (61%),notes,wi-fi network connection “jajaspeed” active: jajaspeed (54%),ethernet network connection “wired connection 1” active,wi-fi network connection “jajaspeed” active: jajaspeed (58%),obs,flameshot,system-config-printer,pragha music player,wi-fi network connection “jajaspeed” active: jajaspeed (73%),wi-fi network connection “jajaspeed” active: jajaspeed (74%),networkmanager applet,variety,clipman,wi-fi network connection “jajaspeed” active: jajaspeed (76%),blueberry-tray.py,pamac-tray]
+/plugins/plugin-4/known-items          [Claude_status_icon_1,easyeffects,jetbrains-toolbox,droidcam,obs,steam,Microsoft Teams - Preview1,vlc,SimpleScreenRecorder,zoom,Insync,tao application,chrome_status_icon_3,toolbox,chrome_status_icon_2,chrome_status_icon_1,flameshot,variety]
+/plugins/plugin-4/known-legacy-items   [com.anthropic.claude-desktop,wi-fi network connection “jajaspeed” active: jajaspeed (46%),wi-fi network connection “jajaspeed” active: jajaspeed (89%),wi-fi network connection “jajaspeed” active: jajaspeed (70%),volumeicon,wi-fi network connection “jajaspeed” active: jajaspeed (67%),wi-fi network connection “jajaspeed” active: jajaspeed (61%),xfce4-power-manager,wi-fi network connection “jajaspeed” active: jajaspeed (65%),electron,wi-fi network connection “jajaspeed” active: jajaspeed (66%),wi-fi network connection “jajaspeed” active: jajaspeed (69%),wi-fi network connection “jajaspeed” active: jajaspeed (68%),wi-fi network connection “jajaspeed” active: jajaspeed (62%),wi-fi network connection “jajaspeed 5 ghz” active: jajaspeed (59%),wi-fi network connection “jajaspeed” active: jajaspeed (57%),wi-fi network connection “jajaspeed” active: jajaspeed (59%),wi-fi network connection “davidwesseler” active: davidwesseler (70%),wi-fi network connection “jajaspeed 2” active: jajaspeed (68%),wi-fi network connection “jajaspeed 2” active: jajaspeed (63%),wi-fi network connection “jajaspeed 2” active: jajaspeed (65%),wi-fi network connection “jajaspeed 3” active: jajaspeed (61%),notes,wi-fi network connection “jajaspeed” active: jajaspeed (54%),ethernet network connection “wired connection 1” active,wi-fi network connection “jajaspeed” active: jajaspeed (58%),obs,flameshot,system-config-printer,pragha music player,wi-fi network connection “jajaspeed” active: jajaspeed (73%),wi-fi network connection “jajaspeed” active: jajaspeed (74%),networkmanager applet,variety,clipman,wi-fi network connection “jajaspeed” active: jajaspeed (76%),blueberry-tray.py,pamac-tray]
 /plugins/plugin-4/show-frame           false
 /plugins/plugin-4/size-max             16
 /plugins/plugin-4/symbolic-icons       true
@@ -1754,34 +1681,35 @@ Hinting: Slight
 ## Installed Theme Packages
 ```
 adobe-source-sans-fonts 3.052-2
-adwaita-cursors 49.0-1
-adwaita-fonts 49.0-2
-adwaita-icon-theme 49.0-1
+adwaita-cursors 50.0-1
+adwaita-fonts 50.0-1
+adwaita-icon-theme 50.0-1
 adwaita-icon-theme-legacy 46.2-3
 alacritty-themes 6.0.2-1
 arc-gtk-theme 20221218-2
 awesome-terminal-fonts 1.1.0-5
 bibata-cursor-theme 2.0.7-1.1
-breeze-icons 6.21.0-1
+breeze-icons 6.25.0-1
 candy-icons-git r1346.1be42f2-1
-cantarell-fonts 1:0.303.1-2
+cantarell-fonts 1:0.311-1
 default-cursors 3-1
 edu-rofi-themes-git 25.10-01
 elementary-icon-theme 8.2.0-1
 fluent-icon-theme-git 2025.08.21.r6.g8a99a6d-1
 fontconfig 2:2.17.1-1
-font-manager 0.9.4-2
+font-manager 0.9.4-3
 gnome-themes-extra 1:3.28-1
 gsfonts 20200910-6
-gtk-update-icon-cache 1:4.20.3-1
+gtk-update-icon-cache 1:4.22.2-1
 hicolor-icon-theme 0.18-1
-kiconthemes 6.21.0-1
+kiconthemes 6.25.0-1
 la-capitaine-icon-theme 0.6.2-1.2
 layan-gtk-theme-git 2023052342g6390f8e-1
 lohit-fonts 2.95.5.1-2
-noto-fonts 1:2025.12.01-1
-openbox-themes-pambudi-git r32.8bdf5de-1
-powerline-fonts 2.8.4-3
+noto-fonts 1:2026.04.01-1
+noto-fonts-emoji 1:2.051-1
+papirus-icon-theme 20250501-1
+powerline-fonts 2.8.4-4
 sound-theme-freedesktop 0.8-6
 sweet-theme-git 6.0.r11.g9d09ed5-1
 terminus-font 4.49.1-8
@@ -1794,13 +1722,13 @@ ttf-ubuntu-font-family 1:0.83-2
 ttf-wps-fonts 2.0-1.1
 urxvt-resize-font-git 27.b593580-1
 vimix-icon-theme-git 2025.08.26.r6.g8c877b9-1
-volumeicon 0.5.1-7
-woff2-font-awesome 7.1.0-1
-xapp-symbolic-icons 1.0.6-1
+volumeicon 0.5.1-8
+woff2-font-awesome 7.2.0-1
+xapp-symbolic-icons 1.0.9-1
 xcb-util-cursor 0.1.6-1
 xfwm4-themes 4.10.0-6
-xorg-fonts-encodings 1.1.0-1
-xorg-mkfontscale 1.2.3-1
+xorg-fonts-encodings 1.1.0-2
+xorg-mkfontscale 1.2.4-1
 xorg-xcursorgen 1.0.9-1
 ```
 
@@ -1854,35 +1782,50 @@ elementary
 ```
 lo               UNKNOWN        <IP_REDACTED>/8 ::1/128 
 wlp0s20f3        UP             <IP_REDACTED>/24 
-enp0s20f0u3u4    DOWN           
+wlp0s13f0u1u4    UP             <IP_REDACTED>/24 2a02:908:960:c4e0:7eac:3f17:ea37:193f/64 fd1e:5c62:5c6b:0:f87b:1f92:9411:5fe8/64 fe80::ef74:98b1:9245:a799/64 
 br-081441c9ccf3  DOWN           <IP_REDACTED>/16 
-br-15b41ec5bd01  DOWN           <IP_REDACTED>/16 
-br-3ec4654a106e  DOWN           <IP_REDACTED>/16 
+br-7dbde1c8410f  DOWN           <IP_REDACTED>/16 
+br-ccd6afa4e3df  DOWN           <IP_REDACTED>/16 
 docker0          DOWN           <IP_REDACTED>/16 
-br-ccd6afa4e3df  UP             <IP_REDACTED>/16 fe80::81a:3fff:fe9e:8dd4/64 
-br-e58d8e31d81e  DOWN           <IP_REDACTED>/16 
-veth917db3c@if2  UP             fe80::1c0e:48ff:fe3d:8ea2/64 
-vethc53fb98@if2  UP             fe80::80e5:90ff:fe2b:5125/64 
-vetha3f0c80@if2  UP             fe80::38f1:88ff:fe3e:de17/64 
-veth6cc803a@if2  UP             fe80::188d:17ff:feee:4e66/64 
+enp0s20f0u3u4    DOWN           
+tun0             UNKNOWN        <IP_REDACTED>/24 fe80::22f4:23f1:eeb5:d698/64 
 ```
 
 ## Default Routes
 ```
 default via <IP_REDACTED> dev wlp0s20f3 proto dhcp src <IP_REDACTED> metric 600 
+default via <IP_REDACTED> dev wlp0s13f0u1u4 proto dhcp src <IP_REDACTED> metric 601 
 ```
 
 ## Network Services Status
 ```
 active
 inactive
-inactive
+active
 ```
 
 ## DNS Configuration
 ```
-Failed to get global data: Could not activate remote peer 'org.freedesktop.resolve1': activation request failed: unknown unit
-Error executing: resolvectl status | head -20
+Global
+           Protocols: +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
+    resolv.conf mode: stub
+Fallback DNS Servers: <IP_REDACTED>#dns.quad9.net 2620:fe::9#dns.quad9.net
+                      <IP_REDACTED>#cloudflare-dns.com
+                      2606:4700:4700::1111#cloudflare-dns.com <IP_REDACTED>#dns.google
+                      2001:4860:4860::8888#dns.google
+
+Link 4 (wlp0s13f0u1u4)
+    Current Scopes: DNS LLMNR/IPv4 LLMNR/IPv6 mDNS/IPv4 mDNS/IPv6
+         Protocols: +DefaultRoute +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
+Current DNS Server: <IP_REDACTED>
+       DNS Servers: fd1e:5c62:5c6b:0:e72:74ff:feca:527d
+                    2a02:908:960:c4e0:e72:74ff:feca:527d <IP_REDACTED>
+        DNS Domain: fritz.box
+     Default Route: yes
+
+Link 10 (tun0)
+    Current Scopes: DNS LLMNR/IPv4 LLMNR/IPv6 mDNS/IPv4 mDNS/IPv6
+         Protocols: +DefaultRoute +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
 ```
 
 ## UFW Firewall Status
@@ -1894,57 +1837,49 @@ ufw status requires sudo
 
 ## Docker Version
 ```
-Docker version 29.1.3, build f52814d454
+Docker version 29.4.0, build 9d7ad9ff18
 ```
 
 ## Docker Containers
 ```
-NAMES                                              IMAGE                                             STATUS
-workoflow-promopage-v2-frankenphp-1                workoflow-promopage-v2-frankenphp                 Up 2 minutes (healthy)
-psychotherapie_phpmyadmin                          phpmyadmin:latest                                 Exited (0) 3 weeks ago
-psychotherapie_php                                 psychotherapieneuss-php                           Exited (0) 3 weeks ago
-psychotherapie_mysql                               mysql:8.0                                         Exited (0) 3 weeks ago
-workoflow-ai-setup-n8n-worker-runner-1             n8nio/runners:latest                              Exited (143) 3 weeks ago
-workoflow-ai-setup-n8n-worker-1                    n8nio/n8n:latest                                  Exited (0) 3 weeks ago
-workoflow-ai-setup-n8n-runner-1                    n8nio/runners:latest                              Exited (143) 3 weeks ago
-workoflow-ai-setup-n8n-1                           n8nio/n8n:latest                                  Exited (0) 3 weeks ago
-litellm                                            ghcr.io/berriai/litellm:main-latest               Exited (0) 3 weeks ago
-workoflow-ai-setup-minio-1                         minio/minio:RELEASE.2025-04-22T22-12-26Z          Exited (0) 3 weeks ago
-workoflow-ai-setup-postgres-1                      postgres:17.5-alpine                              Exited (0) 3 weeks ago
-workoflow-ai-setup-workoflow-teams-bot-1           patricks1987/workoflow-teams-bot:main             Exited (0) 3 weeks ago
-searxng                                            searxng/searxng:latest                            Exited (0) 3 weeks ago
-qdrant                                             qdrant/qdrant:latest                              Exited (143) 3 weeks ago
-gotenberg                                          gotenberg/gotenberg:8                             Exited (0) 3 weeks ago
-tika                                               apache/tika:latest                                Exited (143) 3 weeks ago
-bifrost                                            maximhq/bifrost:latest                            Exited (0) 3 weeks ago
-phoenix                                            arizephoenix/phoenix:latest                       Exited (0) 3 weeks ago
-workoflow-tests-promptfoo-shell-run-86ac826d58b5   workoflow-tests-promptfoo-shell                   Exited (0) 4 weeks ago
-Error executing: docker ps -a --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}' | head -20
+NAMES                                       IMAGE                                           STATUS
+workoflow-promopage-v2-frankenphp-1         workoflow-promopage-v2-frankenphp               Exited (0) 5 days ago
+workoflow-promopage-v2-scheduled-worker-1   workoflow-promopage-v2-scheduled-worker         Exited (0) 5 days ago
+workoflow-promopage-v2-messenger-worker-1   workoflow-promopage-v2-messenger-worker         Exited (0) 5 days ago
+workoflow-crawl4ai                          unclecode/crawl4ai:latest                       Exited (0) 7 days ago
+litellm                                     ghcr.io/berriai/litellm:v1.81.9-stable          Exited (0) 7 days ago
+phoenix                                     arizephoenix/phoenix:latest                     Exited (0) 7 days ago
+phoenix-postgres                            postgres:17.5-alpine                            Exited (0) 7 days ago
+workoflow-rustfs                            d75319bf3085                                    Exited (0) 7 days ago
+workoflow-docling                           ghcr.io/docling-project/docling-serve:v1.14.0   Exited (0) 7 days ago
+qdrant                                      qdrant/qdrant:latest                            Exited (143) 7 days ago
+litellm-postgres                            postgres:17.5-alpine                            Exited (0) 7 days ago
+litellm-redis                               redis:8.0.1                                     Exited (0) 7 days ago
+workoflow-promopage-v2-mariadb-1            mariadb:12                                      Exited (0) 5 days ago
+workoflow-promopage-v2-redis-1              redis:8-alpine                                  Exited (0) 5 days ago
+workoflow-promopage-v2-minio-1              minio/minio:latest                              Exited (0) 5 days ago
+workoflow-ai-setup-redis-1                  redis:8.0.1                                     Exited (0) 7 days ago
 ```
 
 ## Docker Images
 ```
-REPOSITORY                          TAG                            SIZE
-psychotherapieneuss-php             latest                         599MB
-phpmyadmin                          latest                         575MB
-ghcr.io/berriai/litellm             main-latest                    1.34GB
-n8nio/runners                       1.123.4                        355MB
-mysql                               8.0                            781MB
-maximhq/bifrost                     latest                         39.2MB
-n8nio/runners                       latest                         349MB
-workoflow-tests-promptfoo-shell     latest                         2.93GB
-workoflow-promopage-v2-frankenphp   latest                         1.49GB
-redis                               7-alpine                       41.4MB
-searxng/searxng                     latest                         199MB
-patricks1987/workoflow-teams-bot    main                           1.22GB
-n8nio/n8n                           latest                         968MB
-arizephoenix/phoenix                latest                         984MB
-gotenberg/gotenberg                 8                              1.83GB
-postgres                            16-alpine                      281MB
-influxdb                            2.7-alpine                     188MB
-timescale/timescaledb               latest-pg16                    1.07GB
-qdrant/qdrant                       latest                         178MB
-Error executing: docker images --format 'table {{.Repository}}\t{{.Tag}}\t{{.Size}}' | head -20
+REPOSITORY                                TAG              SIZE
+workoflow-promopage-v2-frankenphp         latest           1.56GB
+workoflow-promopage-v2-scheduled-worker   latest           1.55GB
+workoflow-promopage-v2-messenger-worker   latest           1.55GB
+unclecode/crawl4ai                        latest           3.87GB
+nimlang/nim                               latest           785MB
+ghcr.io/docling-project/docling-serve     v1.14.0          10.7GB
+redis                                     8-alpine         97.2MB
+mariadb                                   12               336MB
+ghcr.io/berriai/litellm                   v1.81.9-stable   1.87GB
+rustfs/rustfs                             latest           225MB
+arizephoenix/phoenix                      latest           984MB
+qdrant/qdrant                             latest           178MB
+minio/minio                               latest           175MB
+postgres                                  17.5-alpine      279MB
+redis                                     8.0.1            128MB
+fedora                                    40               226MB
 ```
 
 ## Systemd Containers
@@ -1954,6 +1889,8 @@ No machines.
 
 ## VirtualBox VMs
 ```
+"Ubuntu" {1cd74ca3-b714-4c92-adae-2daa3fcfcd50}
+"Fedora43-KDE" {8bc44bd4-caec-4789-89e3-dfb2f33f90e7}
 ```
 
 # Systemd Services
@@ -1971,59 +1908,62 @@ NetworkManager-wait-online.service enabled disabled
 NetworkManager.service             enabled disabled
 ntpd.service                       enabled disabled
 sddm.service                       enabled disabled
+systemd-resolved.service           enabled enabled
 systemd-timesyncd.service          enabled enabled
 
-12 unit files listed.
+13 unit files listed.
 ```
 
 ## Enabled User Services
 ```
-UNIT FILE              STATE   PRESET
-pipewire-pulse.service enabled enabled
-pipewire.service       enabled enabled
-wireplumber.service    enabled enabled
-xdg-user-dirs.service  enabled enabled
+UNIT FILE                         STATE   PRESET
+app-com.mitchellh.ghostty.service enabled enabled
+claude-cowork.service             enabled enabled
+pipewire-pulse.service            enabled enabled
+pipewire.service                  enabled enabled
+wireplumber.service               enabled enabled
+xdg-user-dirs.service             enabled enabled
 
-4 unit files listed.
+6 unit files listed.
 ```
 
 ## Systemd Timers
 ```
-NEXT                          LEFT LAST                              PASSED UNIT                             ACTIVATES
-Mon 2026-01-05 09:18:45 CET   7min Fri 2025-12-19 10:01:34 CET            - plocate-updatedb.timer           plocate-updatedb.service
-Mon 2026-01-05 09:21:26 CET   9min Fri 2025-12-19 10:07:40 CET            - logrotate.timer                  logrotate.service
-Mon 2026-01-05 09:23:12 CET  11min -                                      - systemd-tmpfiles-clean.timer     systemd-tmpfiles-clean.service
-Mon 2026-01-05 09:52:01 CET  40min Mon 2025-12-15 08:12:21 CET            - fstrim.timer                     fstrim.service
-Mon 2026-01-05 16:16:17 CET     7h Thu 2025-12-18 12:59:19 CET            - man-db.timer                     man-db.service
-Tue 2026-01-06 00:00:00 CET    14h Mon 2026-01-05 09:08:37 CET 3min 13s ago shadow.timer                     shadow.service
-Thu 2026-01-08 09:55:34 CET 3 days Mon 2025-12-15 10:49:11 CET            - archlinux-keyring-wkd-sync.timer archlinux-keyring-wkd-sync.service
--                                - -                                      - pamac-mirrorlist.timer           -
+NEXT                           LEFT LAST                               PASSED UNIT                             ACTIVATES
+Mon 2026-04-27 20:47:43 CEST     7h Fri 2026-04-24 14:48:56 CEST            - man-db.timer                     man-db.service
+Tue 2026-04-28 00:00:00 CEST    10h Mon 2026-04-27 09:31:34 CEST            - shadow.timer                     shadow.service
+Tue 2026-04-28 00:15:45 CEST    11h Mon 2026-04-27 09:42:12 CEST 3h 24min ago logrotate.timer                  logrotate.service
+Tue 2026-04-28 00:56:40 CEST    11h Mon 2026-04-27 09:48:40 CEST 3h 18min ago plocate-updatedb.timer           plocate-updatedb.service
+Tue 2026-04-28 09:47:41 CEST    20h Mon 2026-04-27 09:47:41 CEST 3h 19min ago systemd-tmpfiles-clean.timer     systemd-tmpfiles-clean.service
+Thu 2026-04-30 02:15:08 CEST 2 days Wed 2026-04-22 11:41:36 CEST            - archlinux-keyring-wkd-sync.timer archlinux-keyring-wkd-sync.service
+Mon 2026-05-04 00:19:25 CEST 6 days Mon 2026-04-27 09:37:04 CEST 3h 30min ago fstrim.timer                     fstrim.service
+-                                 - -                                       - pamac-mirrorlist.timer           -
 
 8 timers listed.
 ```
 
 ## Slowest Starting Services
 ```
-14.775s NetworkManager-wait-online.service
- 5.696s docker.service
- 4.054s systemd-rfkill.service
- 2.930s dev-tpm0.device
- 2.930s sys-devices-platform-STM0125:00-tpm-tpm0.device
- 2.860s dev-ttyS2.device
- 2.860s sys-devices-platform-serial8250-serial8250:0-serial8250:0.2-tty-ttyS2.device
- 2.860s sys-devices-platform-serial8250-serial8250:0-serial8250:0.0-tty-ttyS0.device
- 2.860s dev-ttyS0.device
- 2.859s dev-ttyS1.device
- 2.859s sys-devices-platform-serial8250-serial8250:0-serial8250:0.1-tty-ttyS1.device
- 2.855s sys-devices-platform-serial8250-serial8250:0-serial8250:0.3-tty-ttyS3.device
- 2.855s dev-ttyS3.device
- 2.855s sys-devices-platform-STM0125:00-tpmrm-tpmrm0.device
- 2.855s dev-tpmrm0.device
- 2.851s sys-module-configfs.device
- 2.850s sys-module-fuse.device
- 2.823s dev-disk-by\x2dpath-pci\x2d0000:01:00.0\x2dnvme\x2d1\x2dpart-by\x2dpartlabel-Basic\x5cx20data\x5cx20partition.device
- 2.817s dev-disk-by\x2duuid-3EB00E41B00DFFDF.device
- 2.817s dev-disk-by\x2dpath-pci\x2d0000:01:00.0\x2dnvme\x2d1\x2dpart-by\x2dpartnum-6.device
+8min 34.894s fstrim.service
+ 2min 7.939s colord.service
+1min 10.131s plocate-updatedb.service
+     20.098s cups.service
+     17.858s NetworkManager-wait-online.service
+     15.697s systemd-timesyncd.service
+     15.609s systemd-backlight@backlight:intel_backlight.service
+     15.532s systemd-resolved.service
+     15.103s systemd-vconsole-setup.service
+     14.973s systemd-backlight@leds:dell::kbd_backlight.service
+      3.536s sys-devices-platform-STM0125:00-tpm-tpm0.device
+      3.536s dev-tpm0.device
+      3.446s sys-devices-platform-STM0125:00-tpmrm-tpmrm0.device
+      3.446s dev-tpmrm0.device
+      3.427s dev-ttyS0.device
+      3.427s sys-devices-platform-serial8250-serial8250:0-serial8250:0.0-tty-ttyS0.device
+      3.427s dev-ttyS1.device
+      3.427s sys-devices-platform-serial8250-serial8250:0-serial8250:0.1-tty-ttyS1.device
+      3.424s dev-ttyS3.device
+      3.424s sys-devices-platform-serial8250-serial8250:0-serial8250:0.3-tty-ttyS3.device
 ```
 
 ## Boot Critical Chain
@@ -2031,37 +1971,32 @@ Thu 2026-01-08 09:55:34 CET 3 days Mon 2025-12-15 10:49:11 CET            - arch
 The time when unit became active or started is printed after the "@" character.
 The time the unit took to start is printed after the "+" character.
 
-graphical.target @23.640s
-└─multi-user.target @23.640s
-  └─docker.service @17.943s +5.696s
-    └─network-online.target @17.942s
-      └─NetworkManager-wait-online.service @3.166s +14.775s
-        └─NetworkManager.service @2.761s +403ms
-          └─basic.target @2.757s
-            └─dbus-broker.service @2.717s +21ms
-              └─dbus.socket @2.698s +15us
-                └─sysinit.target @2.687s
-                  └─systemd-update-utmp.service @2.668s +17ms
-                    └─systemd-tmpfiles-setup.service @2.614s +52ms
-                      └─local-fs.target @2.606s
-                        └─run-user-1000-doc.mount @21.729s
-                          └─run-user-1000.mount @16.050s
-                            └─local-fs-pre.target @372ms
-                              └─lvm2-monitor.service @299ms +71ms
-                                └─dm-event.socket @288ms +12us
-                                  └─system.slice
-                                    └─-.slice
+graphical.target @37.199s
+└─multi-user.target @37.197s
+  └─cups.service @17.096s +20.098s
+    └─network.target @17.093s
+      └─wpa_supplicant.service @17.075s +16ms
+        └─basic.target @16.652s
+          └─dbus-broker.service @16.612s +21ms
+            └─dbus.socket @16.601s +12us
+              └─sysinit.target @16.589s
+                └─systemd-update-utmp.service @16.565s +22ms
+                  └─systemd-tmpfiles-setup.service @16.490s +73ms
+                    └─local-fs.target @16.483s
+                      └─boot-efi.mount @16.449s +27ms
+                        └─systemd-fsck@dev-disk-by\x2duuid-A80A\x2d33AD.service @952ms +42ms
+                          └─dev-disk-by\x2duuid-A80A\x2d33AD.device
 ```
 
 # Development Environment
 
 ## Installed Programming Languages & Tools
-- **gcc**: gcc (GCC) 15.2.1 20251112
-- **g++**: g++ (GCC) 15.2.1 20251112
-- **clang**: clang version 21.1.6
-- **python**: Python 3.13.11
-- **python3**: Python 3.13.11
-- **node**: v25.2.1
-- **npm**: 11.6.4
-- **cargo**: cargo 1.92.0 (344c4567c 2025-10-21) (Arch Linux rust 1:1.92.0-1)
-- **rustc**: rustc 1.92.0 (ded5c06cf 2025-12-08) (Arch Linux rust 1:1.92.0-1)
+- **gcc**: gcc (GCC) 15.2.1 20260209
+- **g++**: g++ (GCC) 15.2.1 20260209
+- **clang**: clang version 22.1.3
+- **python**: Python 3.14.4
+- **python3**: Python 3.14.4
+- **node**: v25.9.0
+- **npm**: 11.12.1
+- **cargo**: cargo 1.95.0 (f2d3ce0bd 2026-03-21) (Arch Linux rust 1:1.95.0-1)
+- **rustc**: rustc 1.95.0 (59807616e 2026-04-14) (Arch Linux rust 1:1.95.0-1)
